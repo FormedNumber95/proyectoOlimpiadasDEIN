@@ -8,42 +8,45 @@ import java.sql.SQLException;
 import db.ConexionBBDD;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import model.ModeloDeporte;
+import model.ModeloEquipo;
 
-public class DaoDeporte {
+
+public class DaoEquipo {
 	
 	private static Connection con;
 	
-	public static void aniadir(String nombreDeporte) {
+	public static void aniadir(String nombre, String iniciales) {
 		con=ConexionBBDD.getConnection();
-		String insert="INSERT INTO Deporte (nombre) VALUES (?)";
+		String insert="INSERT INTO Equipo (nombre,iniciales) VALUES (?,?)";
 		try {
 			PreparedStatement pstmt;
 			pstmt=con.prepareStatement(insert);
-			pstmt.setString(1, nombreDeporte);
+			pstmt.setString(1,nombre);
+			pstmt.setString(2,iniciales);
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public static void modificar(int id,String nombre) {
+	public static void modificar(int id,String nombre,String iniciales) {
 		con=ConexionBBDD.getConnection();
-		String update="UPDATE Deporte SET nombre=? WHERE id_deporte=?";
+		String update="UPDATE Equipo SET nombre=?,iniciales=? WHERE id_equipo=?";
 		try {
 			PreparedStatement pstmt;
 			pstmt=con.prepareStatement(update);
 			pstmt.setString(1,nombre);
-			pstmt.setInt(2,id);
+			pstmt.setString(2,iniciales);
+			pstmt.setInt(3,id);
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public static void eliminar (int id) {
+	public static void eliminar(int id) {
 		con=ConexionBBDD.getConnection();
-		String delete="DELETE FROM Deporte WHERE id_deporte=?";
+		String delete="DELETE FROM Equipo WHERE id_equipo=?";
 		try {
 			PreparedStatement pstmt;
 			pstmt=con.prepareStatement(delete);
@@ -54,17 +57,17 @@ public class DaoDeporte {
 		}
 	}
 	
-	public static ObservableList<ModeloDeporte> listaDeprotes(){
-		ObservableList<ModeloDeporte>lst=FXCollections.observableArrayList();
+	public static ObservableList<ModeloEquipo> listaEquipos(){
+		ObservableList<ModeloEquipo>lst=FXCollections.observableArrayList();
 		con=ConexionBBDD.getConnection();
-		String select="SELECT id_deporte,nombre FROM Deporte";
+		String select="SELECT id_equipo,nombre,iniciales FROM Equipo";
 		try {
 			PreparedStatement pstmt=con.prepareStatement(select);
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
-				ModeloDeporte deporte=new ModeloDeporte(rs.getString("nombre"));
-				deporte.setId(rs.getInt("id_deporte"));
-				lst.add(deporte);
+				ModeloEquipo equipo=new ModeloEquipo(rs.getString("nombre"),rs.getString("iniciales"));
+				equipo.setId(rs.getInt("id_equipo"));
+				lst.add(equipo);
 			}
 		}catch(SQLException e) {
 			e.printStackTrace();
