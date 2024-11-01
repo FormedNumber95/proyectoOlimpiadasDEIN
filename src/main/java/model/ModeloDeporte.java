@@ -11,6 +11,11 @@ public class ModeloDeporte {
 		super();
 		this.nombre = nombre;
 	}
+	
+	@Override
+	public String toString() {
+		return this.nombre;
+	}
 
 	@Override
 	public int hashCode() {

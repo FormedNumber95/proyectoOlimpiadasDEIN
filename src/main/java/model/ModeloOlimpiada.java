@@ -19,6 +19,11 @@ public class ModeloOlimpiada {
 	}
 
 	@Override
+	public String toString() {
+		return this.nombre;
+	}
+	
+	@Override
 	public int hashCode() {
 		return Objects.hash(anio, ciudad, nombre, temporada);
 	}

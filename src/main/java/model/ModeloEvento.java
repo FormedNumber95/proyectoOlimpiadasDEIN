@@ -15,6 +15,11 @@ public class ModeloEvento {
 		this.idOlimpiada = idOlimpiada;
 		this.id_deporte = id_deporte;
 	}
+	
+	@Override
+	public String toString() {
+		return this.nombre;
+	}
 
 	@Override
 	public int hashCode() {

@@ -4,24 +4,24 @@ import java.util.Objects;
 
 public class ModeloParticipacion {
 	
-	private int idEvento;
+	private ModeloEvento evento;
 	private int idDeportista;
-	private int idEquipo;
+	private ModeloEquipo equipo;
 	private int edad;
 	private String medalla;
 	
-	public ModeloParticipacion(int idEvento, int idDeportista, int idEquipo, int edad, String medalla) {
+	public ModeloParticipacion(ModeloEvento evento, int idDeportista, ModeloEquipo equipo, int edad, String medalla) {
 		super();
-		this.idEvento = idEvento;
+		this.evento = evento;
 		this.idDeportista = idDeportista;
-		this.idEquipo = idEquipo;
+		this.equipo = equipo;
 		this.edad = edad;
 		this.medalla = medalla;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(edad, idDeportista, idEquipo, idEvento, medalla);
+		return Objects.hash(edad, equipo, evento, idDeportista, medalla);
 	}
 
 	@Override
@@ -33,16 +33,16 @@ public class ModeloParticipacion {
 		if (getClass() != obj.getClass())
 			return false;
 		ModeloParticipacion other = (ModeloParticipacion) obj;
-		return edad == other.edad && idDeportista == other.idDeportista && idEquipo == other.idEquipo
-				&& idEvento == other.idEvento && Objects.equals(medalla, other.medalla);
+		return edad == other.edad && Objects.equals(equipo, other.equipo) && Objects.equals(evento, other.evento)
+				&& idDeportista == other.idDeportista && Objects.equals(medalla, other.medalla);
 	}
 
-	public int getIdEvento() {
-		return idEvento;
+	public ModeloEvento getEvento() {
+		return evento;
 	}
 
-	public void setIdEvento(int idEvento) {
-		this.idEvento = idEvento;
+	public void setEvento(ModeloEvento evento) {
+		this.evento = evento;
 	}
 
 	public int getIdDeportista() {
@@ -53,8 +53,8 @@ public class ModeloParticipacion {
 		this.idDeportista = idDeportista;
 	}
 
-	public int getIdEquipo() {
-		return idEquipo;
+	public ModeloEquipo getEquipo() {
+		return equipo;
 	}
 
 	public int getEdad() {

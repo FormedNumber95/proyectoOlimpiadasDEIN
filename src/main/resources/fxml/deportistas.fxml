@@ -59,7 +59,7 @@
                   </TextField>
                </children>
             </HBox>
-            <TableView fx:id="tablaDeportistas" onMouseClicked="#mostrarMenuContextual" prefWidth="700.0">
+            <TableView fx:id="tablaDeportistas" onMouseClicked="#mostrarDeportista" prefWidth="700.0">
                <columns>
                   <TableColumn fx:id="colNombre" editable="false" prefWidth="320.7999939918518" text="%label.nombre" />
                   <TableColumn fx:id="colSexo" editable="false" minWidth="0.0" prefWidth="106.4000244140625" text="%label.sexo" />

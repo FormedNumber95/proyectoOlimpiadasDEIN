@@ -75,4 +75,22 @@ public class DaoEquipo {
 		return lst;
 	}
 	
+	public static ModeloEquipo crearModelo(int id) {
+		con=ConexionBBDD.getConnection();
+		String select="SELECT id_equipo,nombre,iniciales FROM Equipo WHERE id_equipo=?";
+		try {
+			PreparedStatement pstmt=con.prepareStatement(select);
+			pstmt.setInt(1,id);
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()) {
+				ModeloEquipo equipo=new ModeloEquipo(rs.getString("nombre"),rs.getString("iniciales"));
+				equipo.setId(rs.getInt("id_equipo"));
+				return equipo;
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 }

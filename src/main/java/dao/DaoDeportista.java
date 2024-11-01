@@ -65,7 +65,7 @@ public class DaoDeportista {
 	public static ObservableList<ModeloDeportista>listaDeportistas(){
 		ObservableList<ModeloDeportista> lst=FXCollections.observableArrayList();
 		con=ConexionBBDD.getConnection();
-		String select="SELECT id_deprotista,nombre,sexo,peso,altura,foto FROM Deportista";
+		String select="SELECT id_deportista,nombre,sexo,peso,altura,foto FROM Deportista";
 		try {
 			PreparedStatement pstmt=con.prepareStatement(select);
 			ResultSet rs = pstmt.executeQuery();

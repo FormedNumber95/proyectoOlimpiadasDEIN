@@ -22,6 +22,11 @@ public class ModeloDeportista {
 	}
 
 	@Override
+	public String toString() {
+		return this.nombre;
+	}
+	
+	@Override
 	public int hashCode() {
 		return Objects.hash(altura, nombre, peso, sexo);
 	}

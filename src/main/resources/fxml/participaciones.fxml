@@ -10,47 +10,49 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.Tooltip?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" stylesheets="@../styles/estilo.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ctrl.TablaDeportistasController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="556.0" prefWidth="839.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ctrl.ParticipacionesController">
    <children>
       <MenuBar>
-        <menus>
-          <Menu mnemonicParsing="false" text="%label.equipos">
+         <menus>
+            <Menu mnemonicParsing="false" text="%label.equipos">
                <items>
                   <MenuItem fx:id="menAniadirEquipo" mnemonicParsing="false" onAction="#aniadirEquipo" text="%label.btnAniadir" />
                   <MenuItem fx:id="menModificarEquipo" mnemonicParsing="false" onAction="#modificarEquipo" text="%label.btnModificar" />
                   <MenuItem fx:id="menEliminarEquipo" mnemonicParsing="false" onAction="#eliminarEquipo" text="%label.btnEliminar" />
                </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="%label.deportes">
+            </Menu>
+            <Menu mnemonicParsing="false" text="%label.deportes">
                <items>
                   <MenuItem fx:id="menAniadirDeporte" mnemonicParsing="false" onAction="#aniadirDeporte" text="%label.btnAniadir" />
                   <MenuItem fx:id="menModificarDeporte" mnemonicParsing="false" onAction="#modificarDeporte" text="%label.btnModificar" />
                   <MenuItem fx:id="menEliminarDeporte" mnemonicParsing="false" onAction="#eliminarDeporte" text="%label.btnEliminar" />
                </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="%label.olimpiadas">
+            </Menu>
+            <Menu mnemonicParsing="false" text="%label.olimpiadas">
                <items>
                   <MenuItem fx:id="menAniadirOlimpiada" mnemonicParsing="false" onAction="#aniadirOlimpiada" text="%label.btnAniadir" />
                   <MenuItem fx:id="menModificarOlimpiada" mnemonicParsing="false" onAction="#modificarOlimpiada" text="%label.btnModificar" />
                   <MenuItem fx:id="menEliminarOlimpiada" mnemonicParsing="false" onAction="#eliminarOlimpiada" text="%label.btnEliminar" />
                </items>
-          </Menu>
-        </menus>
+            </Menu>
+            <Menu mnemonicParsing="false" text="%label.eventos">
+               <items>
+                  <MenuItem fx:id="menAniadirEvento" mnemonicParsing="false" onAction="#aniadirEvento" text="%label.btnAniadir" />
+                  <MenuItem fx:id="menModificarEvento" mnemonicParsing="false" onAction="#modificarEvento" text="%label.btnModificar" />
+                  <MenuItem fx:id="menEliminarEvento" mnemonicParsing="false" onAction="#eliminarEvento" text="%label.btnEliminar" />
+               </items>
+            </Menu>
+         </menus>
       </MenuBar>
-      <VBox spacing="20.0">
+      <VBox prefWidth="762.0" spacing="20.0" stylesheets="@../styles/estilo.css">
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="23.0" prefWidth="700.0" spacing="10.0">
                <children>
-                  <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../imagenes/contactos.jpeg" />
-                     </image>
-                  </ImageView>
+                  <ImageView fx:id="imgDeportista" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
                   <Label text="%label.filtro" />
                   <TextField fx:id="txtFiltro" onAction="#accionFiltrar">
                      <tooltip>
@@ -59,27 +61,27 @@
                   </TextField>
                </children>
             </HBox>
-            <TableView fx:id="tablaDeportistas" onMouseClicked="#mostrarDeportista" prefWidth="700.0">
+            <TableView fx:id="tablaParticipaciones" onMouseClicked="#mostrarDeportista" prefWidth="700.0">
                <columns>
-                  <TableColumn fx:id="colNombre" editable="false" prefWidth="320.7999939918518" text="%label.nombre" />
-                  <TableColumn fx:id="colSexo" editable="false" minWidth="0.0" prefWidth="106.4000244140625" text="%label.sexo" />
-                  <TableColumn fx:id="colPeso" editable="false" minWidth="0.0" prefWidth="131.99996948242188" text="%label.peso" />
-                  <TableColumn fx:id="colAltura" prefWidth="136.0" text="%label.altura" />
+                  <TableColumn fx:id="colEquipo" editable="false" prefWidth="270.40003061294556" text="%label.equipo" />
+                  <TableColumn fx:id="colEvento" prefWidth="208.0" text="%label.evento" />
+                  <TableColumn fx:id="colEdad" editable="false" minWidth="0.0" prefWidth="142.39993286132812" text="%label.edad" />
+                  <TableColumn fx:id="colMedalla" editable="false" minWidth="0.0" prefWidth="151.2000732421875" text="%label.medalla" />
                </columns>
             </TableView>
             <HBox alignment="CENTER" prefHeight="41.0" prefWidth="700.0" spacing="30.0">
                <children>
-                  <Button fx:id="btnAniadir" mnemonicParsing="false" onAction="#aniadirPersona" text="%label.btnAniadir">
+                  <Button fx:id="btnAniadir" mnemonicParsing="false" onAction="#aniadirParticipacion" text="%label.btnAniadir">
                      <tooltip>
                         <Tooltip text="%label.ayudaAniadir" />
                      </tooltip>
                   </Button>
-                  <Button fx:id="btnModificar" mnemonicParsing="false" onAction="#modificarPersona" text="%label.btnModificar">
+                  <Button fx:id="btnModificar" mnemonicParsing="false" onAction="#modificarParticipacion" text="%label.btnModificar">
                      <tooltip>
                         <Tooltip text="%label.ayudaModificar" />
                      </tooltip>
                   </Button>
-                  <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminarPersona" text="%label.btnEliminar">
+                  <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminarParticipacion" text="%label.btnEliminar">
                      <tooltip>
                         <Tooltip text="%label.ayudaEliminar" />
                      </tooltip>

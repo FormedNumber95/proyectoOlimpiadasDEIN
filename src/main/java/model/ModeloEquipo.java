@@ -13,6 +13,11 @@ public class ModeloEquipo {
 		this.nombre = nombre;
 		this.iniciales = iniciales;
 	}
+	
+	@Override
+	public String toString() {
+		return this.nombre;
+	}
 
 	@Override
 	public int hashCode() {

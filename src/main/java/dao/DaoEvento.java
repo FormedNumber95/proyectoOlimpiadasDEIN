@@ -78,4 +78,23 @@ public class DaoEvento {
 		return lst;
 	}
 	
+	public static ModeloEvento modelo(int id) {
+		con=ConexionBBDD.getConnection();
+		String select="SELECT id_evento,nombre,id_olimpiada,id_deporte FROM Evento WHERE id_evento=?";
+		try {
+			PreparedStatement pstmt;
+			pstmt=con.prepareStatement(select);
+			pstmt.setInt(1,id);
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()) {
+				ModeloEvento evento=new ModeloEvento(rs.getString("nombre"),rs.getInt("id_olimpiada"),rs.getInt("idDeporte"));
+				evento.setId(rs.getInt("id_evento"));
+				return evento;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 }

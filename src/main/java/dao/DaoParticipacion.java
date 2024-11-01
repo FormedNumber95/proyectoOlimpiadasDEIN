@@ -63,15 +63,16 @@ public class DaoParticipacion {
 		}
 	}
 	
-	public static ObservableList<ModeloParticipacion>listaParticipaciones(){
+	public static ObservableList<ModeloParticipacion>listaParticipaciones(int idDeportista){
 		ObservableList<ModeloParticipacion>lst=FXCollections.observableArrayList();
 		con=ConexionBBDD.getConnection();
-		String select="SELECT id_deportista,id_evento,id_equipo,edad,medalla FROM Participacion";
+		String select="SELECT id_deportista,id_evento,id_equipo,edad,medalla FROM Participacion WHERE id_deportista=?";
 		try {
 			PreparedStatement pstmt=con.prepareStatement(select);
+			pstmt.setInt(1,idDeportista);
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
-				ModeloParticipacion participacion=new ModeloParticipacion(rs.getInt("id_evento"),rs.getInt("id_deportista"),rs.getInt("id_equipo"),rs.getInt("edad"),rs.getString("medalla"));
+				ModeloParticipacion participacion=new ModeloParticipacion(DaoEvento.modelo(rs.getInt("id_evento")),rs.getInt("id_deportista"),DaoEquipo.crearModelo(rs.getInt("id_evento")),rs.getInt("edad"),rs.getString("medalla"));
 				lst.add(participacion);
 			}
 		}catch(SQLException e) {
