@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" stylesheets="@../styles/estilo.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ctrl.TablaDeportistasController">
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="%label.equipos">
+               <items>
+                  <MenuItem fx:id="menAniadirEquipo" mnemonicParsing="false" onAction="#aniadirEquipo" text="%label.btnAniadir" />
+                  <MenuItem fx:id="menModificarEquipo" mnemonicParsing="false" onAction="#modificarEquipo" text="%label.btnModificar" />
+                  <MenuItem fx:id="menEliminarEquipo" mnemonicParsing="false" onAction="#eliminarEquipo" text="%label.btnEliminar" />
+               </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="%label.deportes">
+               <items>
+                  <MenuItem fx:id="menAniadirDeporte" mnemonicParsing="false" onAction="#aniadirDeporte" text="%label.btnAniadir" />
+                  <MenuItem fx:id="menModificarDeporte" mnemonicParsing="false" onAction="#modificarDeporte" text="%label.btnModificar" />
+                  <MenuItem fx:id="menEliminarDeporte" mnemonicParsing="false" onAction="#eliminarDeporte" text="%label.btnEliminar" />
+               </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="%label.olimpiadas">
+               <items>
+                  <MenuItem fx:id="menAniadirOlimpiada" mnemonicParsing="false" onAction="#aniadirOlimpiada" text="%label.btnAniadir" />
+                  <MenuItem fx:id="menModificarOlimpiada" mnemonicParsing="false" onAction="#modificarOlimpiada" text="%label.btnModificar" />
+                  <MenuItem fx:id="menEliminarOlimpiada" mnemonicParsing="false" onAction="#eliminarOlimpiada" text="%label.btnEliminar" />
+               </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <VBox spacing="20.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="23.0" prefWidth="700.0" spacing="10.0">
+               <children>
+                  <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagenes/contactos.jpeg" />
+                     </image>
+                  </ImageView>
+                  <Label text="%label.filtro" />
+                  <TextField fx:id="txtFiltro" onAction="#accionFiltrar">
+                     <tooltip>
+                        <Tooltip text="%label.ayudaFiltro" />
+                     </tooltip>
+                  </TextField>
+               </children>
+            </HBox>
+            <TableView fx:id="tablaDeportistas" onMouseClicked="#mostrarMenuContextual" prefWidth="700.0">
+               <columns>
+                  <TableColumn fx:id="colNombre" editable="false" prefWidth="320.7999939918518" text="%label.nombre" />
+                  <TableColumn fx:id="colSexo" editable="false" minWidth="0.0" prefWidth="106.4000244140625" text="%label.sexo" />
+                  <TableColumn fx:id="colPeso" editable="false" minWidth="0.0" prefWidth="131.99996948242188" text="%label.peso" />
+                  <TableColumn fx:id="colAltura" prefWidth="136.0" text="%label.altura" />
+               </columns>
+            </TableView>
+            <HBox alignment="CENTER" prefHeight="41.0" prefWidth="700.0" spacing="30.0">
+               <children>
+                  <Button fx:id="btnAniadir" mnemonicParsing="false" onAction="#aniadirPersona" text="%label.btnAniadir">
+                     <tooltip>
+                        <Tooltip text="%label.ayudaAniadir" />
+                     </tooltip>
+                  </Button>
+                  <Button fx:id="btnModificar" mnemonicParsing="false" onAction="#modificarPersona" text="%label.btnModificar">
+                     <tooltip>
+                        <Tooltip text="%label.ayudaModificar" />
+                     </tooltip>
+                  </Button>
+                  <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminarPersona" text="%label.btnEliminar">
+                     <tooltip>
+                        <Tooltip text="%label.ayudaEliminar" />
+                     </tooltip>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+         </padding>
+      </VBox>
+   </children>
+</VBox>
