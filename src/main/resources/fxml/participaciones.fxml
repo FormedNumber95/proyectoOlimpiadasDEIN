@@ -61,7 +61,7 @@
                   </TextField>
                </children>
             </HBox>
-            <TableView fx:id="tablaParticipaciones" onMouseClicked="#mostrarDeportista" prefWidth="700.0">
+            <TableView fx:id="tablaParticipaciones" prefWidth="700.0">
                <columns>
                   <TableColumn fx:id="colEquipo" editable="false" prefWidth="270.40003061294556" text="%label.equipo" />
                   <TableColumn fx:id="colEvento" prefWidth="208.0" text="%label.evento" />

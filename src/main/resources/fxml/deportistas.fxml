@@ -40,6 +40,13 @@
                   <MenuItem fx:id="menEliminarOlimpiada" mnemonicParsing="false" onAction="#eliminarOlimpiada" text="%label.btnEliminar" />
                </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="%label.eventos">
+               <items>
+                  <MenuItem fx:id="menAniadirEvento" mnemonicParsing="false" onAction="#aniadirEvento" text="%label.btnAniadir" />
+                  <MenuItem fx:id="menModificarEvento" mnemonicParsing="false" onAction="#modificarEvento" text="%label.btnModificar" />
+                  <MenuItem fx:id="menEliminarEvento" mnemonicParsing="false" onAction="#eliminarEvento" text="%label.btnEliminar" />
+               </items>
+            </Menu>
         </menus>
       </MenuBar>
       <VBox spacing="20.0">

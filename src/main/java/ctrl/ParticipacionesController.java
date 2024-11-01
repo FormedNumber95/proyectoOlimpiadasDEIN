@@ -105,17 +105,94 @@ public class ParticipacionesController {
 
     @FXML
     void aniadirDeporte(ActionEvent event) {
-
+    	Properties connConfig =ConexionBBDD.loadProperties() ;
+        String lang = connConfig.getProperty("language");
+        Locale locale = new Locale.Builder().setLanguage(lang).build();
+        ResourceBundle bundle = ResourceBundle.getBundle("idiomas/lang", locale);
+        s=new Stage();
+    	Scene scene;
+    	try {
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/aniadirDeporte.fxml"),bundle);
+			scene = new Scene(controlador.load());
+			s.setScene(scene);
+			AniadirDeporteController controller=controlador.getController();
+			controller.setOwner(s);
+    	} catch (IOException e) {
+			e.printStackTrace();
+		}
+    	s.setResizable(false);
+	     s.initOwner(TablaDeportistasController.getS());
+	     s.initModality(javafx.stage.Modality.WINDOW_MODAL);
+	     s.showAndWait();
     }
 
     @FXML
     void aniadirEquipo(ActionEvent event) {
-
+    	Properties connConfig =ConexionBBDD.loadProperties() ;
+        String lang = connConfig.getProperty("language");
+        Locale locale = new Locale.Builder().setLanguage(lang).build();
+        ResourceBundle bundle = ResourceBundle.getBundle("idiomas/lang", locale);
+        s=new Stage();
+    	Scene scene;
+    	try {
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/aniadirEquipo.fxml"),bundle);
+			scene = new Scene(controlador.load());
+			s.setScene(scene);
+			AniadirEquipoController controller=controlador.getController();
+			controller.setOwner(s);
+    	} catch (IOException e) {
+			e.printStackTrace();
+		}
+    	s.setResizable(false);
+	     s.initOwner(TablaDeportistasController.getS());
+	     s.initModality(javafx.stage.Modality.WINDOW_MODAL);
+	     s.showAndWait();
+    }
+    
+    @FXML
+    void aniadirEvento(ActionEvent event) {
+    	Properties connConfig =ConexionBBDD.loadProperties() ;
+        String lang = connConfig.getProperty("language");
+        Locale locale = new Locale.Builder().setLanguage(lang).build();
+        ResourceBundle bundle = ResourceBundle.getBundle("idiomas/lang", locale);
+        s=new Stage();
+    	Scene scene;
+    	try {
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/aniadirEvento.fxml"),bundle);
+			scene = new Scene(controlador.load());
+			s.setScene(scene);
+			AniadirEventoController controller=controlador.getController();
+			controller.setOwner(s);
+    	} catch (IOException e) {
+			e.printStackTrace();
+		}
+    	s.setResizable(false);
+	     s.initOwner(TablaDeportistasController.getS());
+	     s.initModality(javafx.stage.Modality.WINDOW_MODAL);
+	     s.showAndWait();
     }
 
     @FXML
     void aniadirOlimpiada(ActionEvent event) {
-
+    	Properties connConfig =ConexionBBDD.loadProperties() ;
+        String lang = connConfig.getProperty("language");
+        Locale locale = new Locale.Builder().setLanguage(lang).build();
+        ResourceBundle bundle = ResourceBundle.getBundle("idiomas/lang", locale);
+        s=new Stage();
+    	Scene scene;
+    	try {
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/aniadirOlimpiada.fxml"),bundle);
+			scene = new Scene(controlador.load());
+			s.setScene(scene);
+			AniadirOlimpiadaController controller=controlador.getController();
+			controller.setOwner(s);
+    	} catch (IOException e) {
+			e.printStackTrace();
+		}
+    	s.setResizable(false);
+	     s.initOwner(TablaDeportistasController.getS());
+	     s.initModality(javafx.stage.Modality.WINDOW_MODAL);
+	     s.showAndWait();
     }
 
     @FXML
@@ -154,6 +231,11 @@ public class ParticipacionesController {
     void eliminarEquipo(ActionEvent event) {
 
     }
+    
+    @FXML
+    void eliminarEvento(ActionEvent event) {
+
+    }
 
     @FXML
     void eliminarOlimpiada(ActionEvent event) {
@@ -172,6 +254,11 @@ public class ParticipacionesController {
 
     @FXML
     void modificarEquipo(ActionEvent event) {
+
+    }
+    
+    @FXML
+    void modificarEvento(ActionEvent event) {
 
     }
 
@@ -236,6 +323,10 @@ public class ParticipacionesController {
     
     public static Stage getS() {
 		return s;
+	}
+    
+    public ImageView getImgDeportista() {
+		return imgDeportista;
 	}
     
 }

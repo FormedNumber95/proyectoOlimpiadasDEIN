@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 
 import dao.DaoDeportista;
 import db.ConexionBBDD;
+import es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
@@ -102,23 +103,94 @@ public class TablaDeportistasController {
 
     @FXML
     void aniadirDeporte(ActionEvent event) {
-    	esAniadir=true;
-			
+    	Properties connConfig =ConexionBBDD.loadProperties() ;
+        String lang = connConfig.getProperty("language");
+        Locale locale = new Locale.Builder().setLanguage(lang).build();
+        ResourceBundle bundle = ResourceBundle.getBundle("idiomas/lang", locale);
+        s=new Stage();
+    	Scene scene;
+    	try {
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/aniadirDeporte.fxml"),bundle);
+			scene = new Scene(controlador.load());
+			s.setScene(scene);
+			AniadirDeporteController controller=controlador.getController();
+			controller.setOwner(s);
+    	} catch (IOException e) {
+			e.printStackTrace();
+		}
+    	s.setResizable(false);
+	    s.initOwner(MainApp.getStage());
+	    s.initModality(javafx.stage.Modality.WINDOW_MODAL);
+	    s.showAndWait();
     }
 
     @FXML
     void aniadirEquipo(ActionEvent event) {
-    	esAniadir=true;
+    	Properties connConfig =ConexionBBDD.loadProperties() ;
+        String lang = connConfig.getProperty("language");
+        Locale locale = new Locale.Builder().setLanguage(lang).build();
+        ResourceBundle bundle = ResourceBundle.getBundle("idiomas/lang", locale);
+        s=new Stage();
+    	Scene scene;
+    	try {
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/aniadirEquipo.fxml"),bundle);
+			scene = new Scene(controlador.load());
+			s.setScene(scene);
+			AniadirEquipoController controller=controlador.getController();
+			controller.setOwner(s);
+    	} catch (IOException e) {
+			e.printStackTrace();
+		}
+    	s.setResizable(false);
+	     s.initOwner(MainApp.getStage());
+	     s.initModality(javafx.stage.Modality.WINDOW_MODAL);
+	     s.showAndWait();
     }
     
     @FXML
     void aniadirEvento(ActionEvent event) {
-
+    	Properties connConfig =ConexionBBDD.loadProperties() ;
+        String lang = connConfig.getProperty("language");
+        Locale locale = new Locale.Builder().setLanguage(lang).build();
+        ResourceBundle bundle = ResourceBundle.getBundle("idiomas/lang", locale);
+        s=new Stage();
+    	Scene scene;
+    	try {
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/aniadirEvento.fxml"),bundle);
+			scene = new Scene(controlador.load());
+			s.setScene(scene);
+			AniadirEventoController controller=controlador.getController();
+			controller.setOwner(s);
+    	} catch (IOException e) {
+			e.printStackTrace();
+		}
+    	s.setResizable(false);
+	     s.initOwner(MainApp.getStage());
+	     s.initModality(javafx.stage.Modality.WINDOW_MODAL);
+	     s.showAndWait();
     }
 
     @FXML
     void aniadirOlimpiada(ActionEvent event) {
-    	esAniadir=true;
+    	Properties connConfig =ConexionBBDD.loadProperties() ;
+        String lang = connConfig.getProperty("language");
+        Locale locale = new Locale.Builder().setLanguage(lang).build();
+        ResourceBundle bundle = ResourceBundle.getBundle("idiomas/lang", locale);
+        s=new Stage();
+    	Scene scene;
+    	try {
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/aniadirOlimpiada.fxml"),bundle);
+			scene = new Scene(controlador.load());
+			s.setScene(scene);
+			AniadirOlimpiadaController controller=controlador.getController();
+			controller.setOwner(s);
+    	} catch (IOException e) {
+			e.printStackTrace();
+		}
+    	s.setResizable(false);
+	     s.initOwner(MainApp.getStage());
+	     s.initModality(javafx.stage.Modality.WINDOW_MODAL);
+	     s.showAndWait();
     }
 
     @FXML
@@ -260,7 +332,10 @@ public class TablaDeportistasController {
 	   			scene = new Scene(controlador.load());
 	   			s.setScene(scene);
 	   			ParticipacionesController controller=controlador.getController();
-    		} catch (IOException e) {
+	   			if(tablaDeportistas.getSelectionModel().getSelectedItem().getFoto()!=null) {
+	   				controller.getImgDeportista().setImage(new Image(tablaDeportistas.getSelectionModel().getSelectedItem().getFoto()));
+	   			}
+	   			} catch (IOException e) {
     			e.printStackTrace();
     		}
     		s.setResizable(false);
