@@ -10,11 +10,20 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.ModeloEquipo;
 
-
+/**
+ * The Class DaoEquipo.
+ */
 public class DaoEquipo {
 	
+	/** The con. */
 	private static Connection con;
 	
+	/**
+	 * Aniadir.
+	 *
+	 * @param nombre the nombre
+	 * @param iniciales the iniciales
+	 */
 	public static void aniadir(String nombre, String iniciales) {
 		con=ConexionBBDD.getConnection();
 		String insert="INSERT INTO Equipo (nombre,iniciales) VALUES (?,?)";
@@ -29,6 +38,13 @@ public class DaoEquipo {
 		}
 	}
 	
+	/**
+	 * Modificar.
+	 *
+	 * @param id the id
+	 * @param nombre the nombre
+	 * @param iniciales the iniciales
+	 */
 	public static void modificar(int id,String nombre,String iniciales) {
 		con=ConexionBBDD.getConnection();
 		String update="UPDATE Equipo SET nombre=?,iniciales=? WHERE id_equipo=?";
@@ -44,6 +60,11 @@ public class DaoEquipo {
 		}
 	}
 	
+	/**
+	 * Eliminar.
+	 *
+	 * @param id the id
+	 */
 	public static void eliminar(int id) {
 		con=ConexionBBDD.getConnection();
 		String delete="DELETE FROM Equipo WHERE id_equipo=?";
@@ -57,6 +78,11 @@ public class DaoEquipo {
 		}
 	}
 	
+	/**
+	 * Lista equipos.
+	 *
+	 * @return the observable list
+	 */
 	public static ObservableList<ModeloEquipo> listaEquipos(){
 		ObservableList<ModeloEquipo>lst=FXCollections.observableArrayList();
 		con=ConexionBBDD.getConnection();
@@ -75,6 +101,12 @@ public class DaoEquipo {
 		return lst;
 	}
 	
+	/**
+	 * Crear modelo.
+	 *
+	 * @param id the id
+	 * @return the modelo equipo
+	 */
 	public static ModeloEquipo crearModelo(int id) {
 		con=ConexionBBDD.getConnection();
 		String select="SELECT id_equipo,nombre,iniciales FROM Equipo WHERE id_equipo=?";

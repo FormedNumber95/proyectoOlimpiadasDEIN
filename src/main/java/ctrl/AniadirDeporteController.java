@@ -10,24 +10,41 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import model.ModeloDeporte;
 
+/**
+ * The Class AniadirDeporteController.
+ */
 public class AniadirDeporteController {
 
+    /** The btn cancelar. */
     @FXML
     private Button btnCancelar;
 
+    /** The btn guardar. */
     @FXML
     private Button btnGuardar;
 
+    /** The txt nombre. */
     @FXML
     private TextField txtNombre;
     
+    /** The owner. */
     private Stage owner;
 
+    /**
+     * Accion cancelar.
+     *
+     * @param event the event
+     */
     @FXML
     void accionCancelar(ActionEvent event) {
     	owner.close();
     }
 
+    /**
+     * Accion guardar.
+     *
+     * @param event the event
+     */
     @FXML
     void accionGuardar(ActionEvent event) {
     	String error="";
@@ -55,6 +72,12 @@ public class AniadirDeporteController {
     	owner.close();
     }
     
+    /**
+     * Validar existencia.
+     *
+     * @param nombre the nombre
+     * @return true, if successful
+     */
     private boolean validarExistencia(String nombre) {
     	ModeloDeporte dep=new ModeloDeporte(nombre);
     	for(ModeloDeporte d:DaoDeporte.listaDeprotes()) {
@@ -65,6 +88,11 @@ public class AniadirDeporteController {
 		return false;
 	}
 
+	/**
+	 * Sets the owner.
+	 *
+	 * @param owner the new owner
+	 */
 	public void setOwner(Stage owner) {
 		this.owner = owner;
 	}

@@ -10,10 +10,19 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.ModeloDeporte;
 
+/**
+ * The Class DaoDeporte.
+ */
 public class DaoDeporte {
 	
+	/** The con. */
 	private static Connection con;
 	
+	/**
+	 * Aniadir.
+	 *
+	 * @param nombreDeporte the nombre deporte
+	 */
 	public static void aniadir(String nombreDeporte) {
 		con=ConexionBBDD.getConnection();
 		String insert="INSERT INTO Deporte (nombre) VALUES (?)";
@@ -27,6 +36,12 @@ public class DaoDeporte {
 		}
 	}
 	
+	/**
+	 * Modificar.
+	 *
+	 * @param id the id
+	 * @param nombre the nombre
+	 */
 	public static void modificar(int id,String nombre) {
 		con=ConexionBBDD.getConnection();
 		String update="UPDATE Deporte SET nombre=? WHERE id_deporte=?";
@@ -41,6 +56,11 @@ public class DaoDeporte {
 		}
 	}
 	
+	/**
+	 * Eliminar.
+	 *
+	 * @param id the id
+	 */
 	public static void eliminar (int id) {
 		con=ConexionBBDD.getConnection();
 		String delete="DELETE FROM Deporte WHERE id_deporte=?";
@@ -54,6 +74,11 @@ public class DaoDeporte {
 		}
 	}
 	
+	/**
+	 * Lista deprotes.
+	 *
+	 * @return the observable list
+	 */
 	public static ObservableList<ModeloDeporte> listaDeprotes(){
 		ObservableList<ModeloDeporte>lst=FXCollections.observableArrayList();
 		con=ConexionBBDD.getConnection();

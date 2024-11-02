@@ -11,11 +11,23 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.ModeloDeportista;
 
-
+/**
+ * The Class DaoDeportista.
+ */
 public class DaoDeportista {
 	
+	/** The con. */
 	private static Connection con;
 	
+	/**
+	 * Aniadir.
+	 *
+	 * @param nombreDeportista the nombre deportista
+	 * @param sexo the sexo
+	 * @param peso the peso
+	 * @param altura the altura
+	 * @param foto the foto
+	 */
 	public static void aniadir(String nombreDeportista,char sexo,int peso,int altura,InputStream foto) {
 		con=ConexionBBDD.getConnection();
 		String insert="INSERT INTO Deportista (nombre,sexo,peso,altura,foto) VALUES (?,?,?,?,?)";
@@ -33,6 +45,16 @@ public class DaoDeportista {
 		}
 	}
 	
+	/**
+	 * Modificar.
+	 *
+	 * @param id the id
+	 * @param nombreDeportista the nombre deportista
+	 * @param sexo the sexo
+	 * @param peso the peso
+	 * @param altura the altura
+	 * @param foto the foto
+	 */
 	public static void modificar(int id,String nombreDeportista,char sexo,int peso,int altura,InputStream foto) {
 		con=ConexionBBDD.getConnection();
 		String update="UPDATE Deportista SET nombre=?,sexo=?,peso=?,altura=?,foto=? WHERE id_deportista=?";
@@ -50,6 +72,11 @@ public class DaoDeportista {
 		}
 	}
 	
+	/**
+	 * Eliminar.
+	 *
+	 * @param id the id
+	 */
 	public static void eliminar(int id) {
 		con=ConexionBBDD.getConnection();
 		String delete="DELETE FROM Deportista WHERE id_deportista=?";
@@ -62,6 +89,11 @@ public class DaoDeportista {
 		}
 	}
 	
+	/**
+	 * Lista deportistas.
+	 *
+	 * @return the observable list
+	 */
 	public static ObservableList<ModeloDeportista>listaDeportistas(){
 		ObservableList<ModeloDeportista> lst=FXCollections.observableArrayList();
 		con=ConexionBBDD.getConnection();

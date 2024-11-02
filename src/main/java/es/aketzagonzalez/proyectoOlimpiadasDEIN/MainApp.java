@@ -14,10 +14,20 @@ import java.util.ResourceBundle;
 
 import db.ConexionBBDD;
 
-
+/**
+ * The Class MainApp.
+ */
 public class MainApp extends Application {
+    
+    /** The stage. */
     private static Stage stage;
 
+    /**
+     * Start.
+     *
+     * @param s the s
+     * @throws IOException Signals that an I/O exception has occurred.
+     */
     @Override
     public void start(@SuppressWarnings("exports") Stage s) throws IOException {
     	Properties connConfig =ConexionBBDD.loadProperties() ;
@@ -34,10 +44,25 @@ public class MainApp extends Application {
         setRoot("deportistas","",bundle);
     }
 
+    /**
+     * Sets the root.
+     *
+     * @param fxml the fxml
+     * @param bundle the bundle
+     * @throws IOException Signals that an I/O exception has occurred.
+     */
     static void setRoot(String fxml,ResourceBundle bundle) throws IOException {
         setRoot(fxml,stage.getTitle(),bundle);
     }
 
+    /**
+     * Sets the root.
+     *
+     * @param fxml the fxml
+     * @param title the title
+     * @param bundle the bundle
+     * @throws IOException Signals that an I/O exception has occurred.
+     */
     static void setRoot(String fxml, String title,ResourceBundle bundle) throws IOException {
         Scene scene = new Scene(loadFXML(fxml,bundle));
         stage.setTitle(title);
@@ -45,16 +70,34 @@ public class MainApp extends Application {
         stage.show();
     }
 
+    /**
+     * Load FXML.
+     *
+     * @param fxml the fxml
+     * @param bundle the bundle
+     * @return the parent
+     * @throws IOException Signals that an I/O exception has occurred.
+     */
     private static Parent loadFXML(String fxml,ResourceBundle bundle) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("/fxml/"+fxml + ".fxml"),bundle);
         return fxmlLoader.load();
     }
 
 
+    /**
+     * The main method.
+     *
+     * @param args the arguments
+     */
     public static void main(String[] args) {
         launch(args);
     }
     
+    /**
+     * Gets the stage.
+     *
+     * @return the stage
+     */
     public static Stage getStage() {
 		return stage;
 	}

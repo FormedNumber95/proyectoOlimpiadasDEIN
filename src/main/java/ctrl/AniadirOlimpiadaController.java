@@ -11,33 +11,53 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import model.ModeloOlimpiada;
 
+/**
+ * The Class AniadirOlimpiadaController.
+ */
 public class AniadirOlimpiadaController {
 
+    /** The btn cancelar. */
     @FXML
     private Button btnCancelar;
 
+    /** The btn guardar. */
     @FXML
     private Button btnGuardar;
 
+    /** The cmb temporada. */
     @FXML
     private ComboBox<String> cmbTemporada;
 
+    /** The txt ciudad. */
     @FXML
     private TextField txtCiudad;
 
+    /** The txt edad. */
     @FXML
     private TextField txtEdad;
 
+    /** The txt nombre. */
     @FXML
     private TextField txtNombre;
     
+    /** The owner. */
     private Stage owner;
 
+    /**
+     * Accion cancelar.
+     *
+     * @param event the event
+     */
     @FXML
     void accionCancelar(ActionEvent event) {
     	owner.close();
     }
 
+    /**
+     * Accion guardar.
+     *
+     * @param event the event
+     */
     @FXML
     void accionGuardar(ActionEvent event) {
     	String error="";
@@ -84,12 +104,24 @@ public class AniadirOlimpiadaController {
     	owner.close();
     }
     
+    /**
+     * Initialize.
+     */
     @FXML
     private void initialize() {
     	cmbTemporada.getItems().addAll("Winter","Summer");
     	cmbTemporada.getSelectionModel().select(0);
     }
 
+    /**
+     * Validar existencia.
+     *
+     * @param nombre the nombre
+     * @param anio the anio
+     * @param ciudad the ciudad
+     * @param selectedItem the selected item
+     * @return true, if successful
+     */
     private boolean validarExistencia(String nombre, int anio, String ciudad, String selectedItem) {
 		ModeloOlimpiada ol=new ModeloOlimpiada(nombre, anio, selectedItem, ciudad);
 		for(ModeloOlimpiada o:DaoOlimpiada.listaOlimpiadas()) {
@@ -100,6 +132,11 @@ public class AniadirOlimpiadaController {
 		return false;
 	}
 
+	/**
+	 * Sets the owner.
+	 *
+	 * @param owner the new owner
+	 */
 	public void setOwner(Stage owner) {
 		this.owner = owner;
 	}

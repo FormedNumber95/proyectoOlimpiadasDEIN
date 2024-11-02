@@ -15,30 +15,49 @@ import model.ModeloDeporte;
 import model.ModeloEvento;
 import model.ModeloOlimpiada;
 
+/**
+ * The Class AniadirEventoController.
+ */
 public class AniadirEventoController {
 
+    /** The btn cancelar. */
     @FXML
     private Button btnCancelar;
 
+    /** The btn guardar. */
     @FXML
     private Button btnGuardar;
 
+    /** The cmb deporte. */
     @FXML
     private ComboBox<ModeloDeporte> cmbDeporte;
 
+    /** The cmb olimpiada. */
     @FXML
     private ComboBox<ModeloOlimpiada> cmbOlimpiada;
 
+    /** The txt nombre. */
     @FXML
     private TextField txtNombre;
     
+    /** The owner. */
     private Stage owner;
 
+    /**
+     * Accion cancelar.
+     *
+     * @param event the event
+     */
     @FXML
     void accionCancelar(ActionEvent event) {
     	owner.close();
     }
 
+    /**
+     * Accion guardar.
+     *
+     * @param event the event
+     */
     @FXML
     void accionGuardar(ActionEvent event) {
     	String error="";
@@ -66,6 +85,9 @@ public class AniadirEventoController {
     	owner.close();
     }
 
+	/**
+	 * Initialize.
+	 */
 	@FXML
     private void initialize() {
     	cmbDeporte.setItems(DaoDeporte.listaDeprotes());
@@ -74,6 +96,14 @@ public class AniadirEventoController {
     	cmbOlimpiada.getSelectionModel().select(0);
     }
 	
+    /**
+     * Validar existencia.
+     *
+     * @param nombre the nombre
+     * @param idDeporte the id deporte
+     * @param idOlimpiada the id olimpiada
+     * @return true, if successful
+     */
     private boolean validarExistencia(String nombre, int idDeporte, int idOlimpiada) {
 		ModeloEvento ev=new ModeloEvento(nombre, idOlimpiada, idDeporte);
 		for(ModeloEvento e:DaoEvento.listaEventos()) {
@@ -84,6 +114,11 @@ public class AniadirEventoController {
 		return false;
 	}
     
+    /**
+     * Sets the owner.
+     *
+     * @param owner the new owner
+     */
     public void setOwner(Stage owner) {
 		this.owner = owner;
 	}

@@ -10,11 +10,23 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.ModeloParticipacion;
 
-
+/**
+ * The Class DaoParticipacion.
+ */
 public class DaoParticipacion {
 	
+	/** The con. */
 	private static Connection con;
 	
+	/**
+	 * Aniadir.
+	 *
+	 * @param idDeportista the id deportista
+	 * @param idEvento the id evento
+	 * @param idEquipo the id equipo
+	 * @param edad the edad
+	 * @param medalla the medalla
+	 */
 	public static void aniadir(int idDeportista,int idEvento,int idEquipo,int edad,String medalla) {
 		con=ConexionBBDD.getConnection();
 		String insert="INSERT INTO Participacion (id_deportista,id_evento,id_equipo,edad,medalla) VALUES (?,?,?,?,?)";
@@ -32,6 +44,15 @@ public class DaoParticipacion {
 		}
 	}
 	
+	/**
+	 * Modificar.
+	 *
+	 * @param idDeportista the id deportista
+	 * @param idEvento the id evento
+	 * @param idEquipo the id equipo
+	 * @param edad the edad
+	 * @param medalla the medalla
+	 */
 	public static void modificar(int idDeportista,int idEvento,int idEquipo,int edad,String medalla) {
 		con=ConexionBBDD.getConnection();
 		String update="UPDATE Participacion SET id_equipo=?,edad=?,medalla=? WHERE id_deportista=? AND id_evento=?";
@@ -49,6 +70,12 @@ public class DaoParticipacion {
 		}
 	}
 	
+	/**
+	 * Eliminar.
+	 *
+	 * @param idDeportista the id deportista
+	 * @param idEvento the id evento
+	 */
 	public static void eliminar(int idDeportista,int idEvento) {
 		con=ConexionBBDD.getConnection();
 		String delete="DELETE FROM Participacion WHERE id_deportista=? AND id_evento=?";
@@ -63,6 +90,12 @@ public class DaoParticipacion {
 		}
 	}
 	
+	/**
+	 * Lista participaciones.
+	 *
+	 * @param idDeportista the id deportista
+	 * @return the observable list
+	 */
 	public static ObservableList<ModeloParticipacion>listaParticipaciones(int idDeportista){
 		ObservableList<ModeloParticipacion>lst=FXCollections.observableArrayList();
 		con=ConexionBBDD.getConnection();

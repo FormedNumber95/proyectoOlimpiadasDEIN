@@ -10,11 +10,22 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.ModeloOlimpiada;
 
-
+/**
+ * The Class DaoOlimpiada.
+ */
 public class DaoOlimpiada {
 
+	/** The con. */
 	private static Connection con;
 	
+	/**
+	 * Aniadir.
+	 *
+	 * @param nombre the nombre
+	 * @param anio the anio
+	 * @param temporada the temporada
+	 * @param ciudad the ciudad
+	 */
 	public static void aniadir(String nombre, int anio,String temporada,String ciudad) {
 		con=ConexionBBDD.getConnection();
 		String insert="INSERT INTO Olimpiada (nombre,anio,temporada,ciudad) VALUES (?,?,?,?)";
@@ -31,6 +42,15 @@ public class DaoOlimpiada {
 		}
 	}
 	
+	/**
+	 * Modificar.
+	 *
+	 * @param id the id
+	 * @param nombre the nombre
+	 * @param anio the anio
+	 * @param temporada the temporada
+	 * @param ciudad the ciudad
+	 */
 	public static void modificar(int id,String nombre, int anio,String temporada,String ciudad) {
 		con=ConexionBBDD.getConnection();
 		String update="UPDATE Olimpiada SET nombre=?,anio=?,temporada=?,ciudad=? WHERE id_olimpiada=?";
@@ -48,6 +68,11 @@ public class DaoOlimpiada {
 		}
 	}
 	
+	/**
+	 * Eliminar.
+	 *
+	 * @param id the id
+	 */
 	public static void eliminar(int id) {
 		con=ConexionBBDD.getConnection();
 		String delete="DELETE FROM Olimpiada WHERE id_olimpiada=?";
@@ -61,6 +86,11 @@ public class DaoOlimpiada {
 		}
 	}
 	
+	/**
+	 * Lista olimpiadas.
+	 *
+	 * @return the observable list
+	 */
 	public static ObservableList<ModeloOlimpiada> listaOlimpiadas() {
 		ObservableList<ModeloOlimpiada>lst=FXCollections.observableArrayList();
 		con=ConexionBBDD.getConnection();

@@ -27,70 +27,100 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.ModeloDeportista;
 
+/**
+ * The Class TablaDeportistasController.
+ */
 public class TablaDeportistasController {
 
+    /** The col altura. */
     @FXML
     private TableColumn<ModeloDeportista, Integer> colAltura;
 
+    /** The btn aniadir. */
     @FXML
     private Button btnAniadir;
 
+    /** The btn eliminar. */
     @FXML
     private Button btnEliminar;
 
+    /** The btn modificar. */
     @FXML
     private Button btnModificar;
 
+    /** The col nombre. */
     @FXML
     private TableColumn<ModeloDeportista, String> colNombre;
 
+    /** The col peso. */
     @FXML
     private TableColumn<ModeloDeportista, Integer>colPeso;
 
+    /** The col sexo. */
     @FXML
     private TableColumn<ModeloDeportista, String> colSexo;
 
+    /** The men aniadir deporte. */
     @FXML
     private MenuItem menAniadirDeporte;
 
+    /** The men aniadir equipo. */
     @FXML
     private MenuItem menAniadirEquipo;
 
+    /** The men aniadir olimpiada. */
     @FXML
     private MenuItem menAniadirOlimpiada;
 
+    /** The men eliminar deporte. */
     @FXML
     private MenuItem menEliminarDeporte;
 
+    /** The men eliminar equipo. */
     @FXML
     private MenuItem menEliminarEquipo;
 
+    /** The men eliminar olimpiada. */
     @FXML
     private MenuItem menEliminarOlimpiada;
 
+    /** The men modificar deporte. */
     @FXML
     private MenuItem menModificarDeporte;
 
+    /** The men modificar equipo. */
     @FXML
     private MenuItem menModificarEquipo;
 
+    /** The men modificar olimpiada. */
     @FXML
     private MenuItem menModificarOlimpiada;
 
+    /** The tabla deportistas. */
     @FXML
     private TableView<ModeloDeportista> tablaDeportistas;
 
+    /** The txt filtro. */
     @FXML
     private TextField txtFiltro;
     
+    /** The lista todos. */
     private static ObservableList<ModeloDeportista> listaTodos;
     
+    /** The filtro. */
     private FilteredList<ModeloDeportista> filtro;
     
+    /** The es aniadir. */
     private static boolean esAniadir;
     
+    /** The s. */
     private static Stage s;
 
+    /**
+     * Accion filtrar.
+     *
+     * @param event the event
+     */
     @FXML
     void accionFiltrar(ActionEvent event) {
     	tablaDeportistas.setItems(filtro);
@@ -101,6 +131,11 @@ public class TablaDeportistasController {
     	}
     }
 
+    /**
+     * Aniadir deporte.
+     *
+     * @param event the event
+     */
     @FXML
     void aniadirDeporte(ActionEvent event) {
     	Properties connConfig =ConexionBBDD.loadProperties() ;
@@ -124,6 +159,11 @@ public class TablaDeportistasController {
 	    s.showAndWait();
     }
 
+    /**
+     * Aniadir equipo.
+     *
+     * @param event the event
+     */
     @FXML
     void aniadirEquipo(ActionEvent event) {
     	Properties connConfig =ConexionBBDD.loadProperties() ;
@@ -147,6 +187,11 @@ public class TablaDeportistasController {
 	     s.showAndWait();
     }
     
+    /**
+     * Aniadir evento.
+     *
+     * @param event the event
+     */
     @FXML
     void aniadirEvento(ActionEvent event) {
     	Properties connConfig =ConexionBBDD.loadProperties() ;
@@ -170,6 +215,11 @@ public class TablaDeportistasController {
 	     s.showAndWait();
     }
 
+    /**
+     * Aniadir olimpiada.
+     *
+     * @param event the event
+     */
     @FXML
     void aniadirOlimpiada(ActionEvent event) {
     	Properties connConfig =ConexionBBDD.loadProperties() ;
@@ -193,6 +243,11 @@ public class TablaDeportistasController {
 	     s.showAndWait();
     }
 
+    /**
+     * Aniadir persona.
+     *
+     * @param event the event
+     */
     @FXML
     void aniadirPersona(ActionEvent event) {
     	Properties connConfig =ConexionBBDD.loadProperties() ;
@@ -220,26 +275,127 @@ public class TablaDeportistasController {
 	     tablaDeportistas.refresh();
     }
 
+    /**
+     * Eliminar deporte.
+     *
+     * @param event the event
+     */
     @FXML
     void eliminarDeporte(ActionEvent event) {
-
+    	Properties connConfig =ConexionBBDD.loadProperties() ;
+        String lang = connConfig.getProperty("language");
+        Locale locale = new Locale.Builder().setLanguage(lang).build();
+        ResourceBundle bundle = ResourceBundle.getBundle("idiomas/lang", locale);
+        s=new Stage();
+    	Scene scene;
+    	try {
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/editarDeporte.fxml"),bundle);
+			scene = new Scene(controlador.load());
+			s.setScene(scene);
+			EditarDeporteController controller=controlador.getController();
+			controller.setOwner(s);
+			controller.getGrid().setDisable(true);
+    	} catch (IOException e) {
+			e.printStackTrace();
+		}
+    	s.setResizable(false);
+	    s.initOwner(MainApp.getStage());
+	    s.initModality(javafx.stage.Modality.WINDOW_MODAL);
+	    s.showAndWait();
     }
 
+    /**
+     * Eliminar equipo.
+     *
+     * @param event the event
+     */
     @FXML
     void eliminarEquipo(ActionEvent event) {
-
+    	Properties connConfig =ConexionBBDD.loadProperties() ;
+        String lang = connConfig.getProperty("language");
+        Locale locale = new Locale.Builder().setLanguage(lang).build();
+        ResourceBundle bundle = ResourceBundle.getBundle("idiomas/lang", locale);
+        s=new Stage();
+    	Scene scene;
+    	try {
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/editarEquipo.fxml"),bundle);
+			scene = new Scene(controlador.load());
+			s.setScene(scene);
+			EditarEquipoController controller=controlador.getController();
+			controller.setOwner(s);
+			controller.getGrid().setDisable(true);
+    	} catch (IOException e) {
+			e.printStackTrace();
+		}
+    	s.setResizable(false);
+	    s.initOwner(MainApp.getStage());
+	    s.initModality(javafx.stage.Modality.WINDOW_MODAL);
+	    s.showAndWait();
     }
     
+    /**
+     * Eliminar evento.
+     *
+     * @param event the event
+     */
     @FXML
     void eliminarEvento(ActionEvent event) {
-
+    	Properties connConfig =ConexionBBDD.loadProperties() ;
+        String lang = connConfig.getProperty("language");
+        Locale locale = new Locale.Builder().setLanguage(lang).build();
+        ResourceBundle bundle = ResourceBundle.getBundle("idiomas/lang", locale);
+        s=new Stage();
+    	Scene scene;
+    	try {
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/editarEvento.fxml"),bundle);
+			scene = new Scene(controlador.load());
+			s.setScene(scene);
+			EditarEventoController controller=controlador.getController();
+			controller.setOwner(s);
+			controller.getGrid().setDisable(true);
+    	} catch (IOException e) {
+			e.printStackTrace();
+		}
+    	s.setResizable(false);
+	    s.initOwner(MainApp.getStage());
+	    s.initModality(javafx.stage.Modality.WINDOW_MODAL);
+	    s.showAndWait();
     }
 
+    /**
+     * Eliminar olimpiada.
+     *
+     * @param event the event
+     */
     @FXML
     void eliminarOlimpiada(ActionEvent event) {
-
+    	Properties connConfig =ConexionBBDD.loadProperties() ;
+        String lang = connConfig.getProperty("language");
+        Locale locale = new Locale.Builder().setLanguage(lang).build();
+        ResourceBundle bundle = ResourceBundle.getBundle("idiomas/lang", locale);
+        s=new Stage();
+    	Scene scene;
+    	try {
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/editarOlimpiada.fxml"),bundle);
+			scene = new Scene(controlador.load());
+			s.setScene(scene);
+			EditarOlimpiadaController controller=controlador.getController();
+			controller.setOwner(s);
+			controller.getGrid().setDisable(true);
+    	} catch (IOException e) {
+			e.printStackTrace();
+		}
+    	s.setResizable(false);
+	    s.initOwner(MainApp.getStage());
+	    s.initModality(javafx.stage.Modality.WINDOW_MODAL);
+	    s.showAndWait();
     }
 
+    /**
+     * Eliminar persona.
+     *
+     * @param event the event
+     */
     @FXML
     void eliminarPersona(ActionEvent event) {
     	Alert al=new Alert(AlertType.CONFIRMATION);
@@ -261,26 +417,127 @@ public class TablaDeportistasController {
     	tablaDeportistas.getSelectionModel().clearSelection();
     }
 
+    /**
+     * Modificar deporte.
+     *
+     * @param event the event
+     */
     @FXML
     void modificarDeporte(ActionEvent event) {
-    	
+    	Properties connConfig =ConexionBBDD.loadProperties() ;
+        String lang = connConfig.getProperty("language");
+        Locale locale = new Locale.Builder().setLanguage(lang).build();
+        ResourceBundle bundle = ResourceBundle.getBundle("idiomas/lang", locale);
+        s=new Stage();
+    	Scene scene;
+    	try {
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/editarDeporte.fxml"),bundle);
+			scene = new Scene(controlador.load());
+			s.setScene(scene);
+			EditarDeporteController controller=controlador.getController();
+			controller.setOwner(s);
+			controller.getGrid().setDisable(false);
+    	} catch (IOException e) {
+			e.printStackTrace();
+		}
+    	s.setResizable(false);
+	    s.initOwner(MainApp.getStage());
+	    s.initModality(javafx.stage.Modality.WINDOW_MODAL);
+	    s.showAndWait();
     }
 
+    /**
+     * Modificar equipo.
+     *
+     * @param event the event
+     */
     @FXML
     void modificarEquipo(ActionEvent event) {
-    	
+    	Properties connConfig =ConexionBBDD.loadProperties() ;
+        String lang = connConfig.getProperty("language");
+        Locale locale = new Locale.Builder().setLanguage(lang).build();
+        ResourceBundle bundle = ResourceBundle.getBundle("idiomas/lang", locale);
+        s=new Stage();
+    	Scene scene;
+    	try {
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/editarEquipo.fxml"),bundle);
+			scene = new Scene(controlador.load());
+			s.setScene(scene);
+			EditarEquipoController controller=controlador.getController();
+			controller.setOwner(s);
+			controller.getGrid().setDisable(false);
+    	} catch (IOException e) {
+			e.printStackTrace();
+		}
+    	s.setResizable(false);
+	    s.initOwner(MainApp.getStage());
+	    s.initModality(javafx.stage.Modality.WINDOW_MODAL);
+	    s.showAndWait();
     }
     
+    /**
+     * Modificar evento.
+     *
+     * @param event the event
+     */
     @FXML
     void modificarEvento(ActionEvent event) {
-
+    	Properties connConfig =ConexionBBDD.loadProperties() ;
+        String lang = connConfig.getProperty("language");
+        Locale locale = new Locale.Builder().setLanguage(lang).build();
+        ResourceBundle bundle = ResourceBundle.getBundle("idiomas/lang", locale);
+        s=new Stage();
+    	Scene scene;
+    	try {
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/editarEvento.fxml"),bundle);
+			scene = new Scene(controlador.load());
+			s.setScene(scene);
+			EditarEventoController controller=controlador.getController();
+			controller.setOwner(s);
+			controller.getGrid().setDisable(false);
+    	} catch (IOException e) {
+			e.printStackTrace();
+		}
+    	s.setResizable(false);
+	    s.initOwner(MainApp.getStage());
+	    s.initModality(javafx.stage.Modality.WINDOW_MODAL);
+	    s.showAndWait();
     }
 
+    /**
+     * Modificar olimpiada.
+     *
+     * @param event the event
+     */
     @FXML
     void modificarOlimpiada(ActionEvent event) {
-    	
+    	Properties connConfig =ConexionBBDD.loadProperties() ;
+        String lang = connConfig.getProperty("language");
+        Locale locale = new Locale.Builder().setLanguage(lang).build();
+        ResourceBundle bundle = ResourceBundle.getBundle("idiomas/lang", locale);
+        s=new Stage();
+    	Scene scene;
+    	try {
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/editarOlimpiada.fxml"),bundle);
+			scene = new Scene(controlador.load());
+			s.setScene(scene);
+			EditarOlimpiadaController controller=controlador.getController();
+			controller.setOwner(s);
+			controller.getGrid().setDisable(false);
+    	} catch (IOException e) {
+			e.printStackTrace();
+		}
+    	s.setResizable(false);
+	    s.initOwner(MainApp.getStage());
+	    s.initModality(javafx.stage.Modality.WINDOW_MODAL);
+	    s.showAndWait();
     }
 
+    /**
+     * Modificar persona.
+     *
+     * @param event the event
+     */
     @FXML
     void modificarPersona(ActionEvent event) {
     	Properties connConfig =ConexionBBDD.loadProperties() ;
@@ -317,6 +574,11 @@ public class TablaDeportistasController {
 	     tablaDeportistas.refresh();
     }
 
+    /**
+     * Mostrar deportista.
+     *
+     * @param event the event
+     */
     @FXML
     void mostrarDeportista(MouseEvent event) {
     	if(tablaDeportistas.getSelectionModel().getSelectedItem()!=null&&event.getClickCount()==2) {
@@ -345,6 +607,9 @@ public class TablaDeportistasController {
     	}
     }
     
+    /**
+     * Initialize.
+     */
     @FXML
     private void initialize() {
     	colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
@@ -356,14 +621,29 @@ public class TablaDeportistasController {
     	tablaDeportistas.setItems(listaTodos);
     }
 
+    /**
+     * Gets the s.
+     *
+     * @return the s
+     */
     public static Stage getS() {
 		return s;
 	}
     
+    /**
+     * Checks if is es aniadir.
+     *
+     * @return true, if is es aniadir
+     */
     public static boolean isEsAniadir() {
 		return esAniadir;
 	}
     
+    /**
+     * Sets the lista todos.
+     *
+     * @param listaTodos the new lista todos
+     */
     public static void setListaTodos(ObservableList<ModeloDeportista> listaTodos) {
 		TablaDeportistasController.listaTodos = listaTodos;
 	}

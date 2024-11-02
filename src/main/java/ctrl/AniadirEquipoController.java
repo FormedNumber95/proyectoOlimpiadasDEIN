@@ -1,6 +1,5 @@
 package ctrl;
 
-import dao.DaoDeporte;
 import dao.DaoEquipo;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,27 +10,45 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import model.ModeloEquipo;
 
+/**
+ * The Class AniadirEquipoController.
+ */
 public class AniadirEquipoController {
 
+    /** The btn cancelar. */
     @FXML
     private Button btnCancelar;
 
+    /** The btn guardar. */
     @FXML
     private Button btnGuardar;
 
+    /** The txt iniciales. */
     @FXML
     private TextField txtIniciales;
 
+    /** The txt nombre. */
     @FXML
     private TextField txtNombre;
     
+    /** The owner. */
     private Stage owner;
 
+    /**
+     * Accion cancelar.
+     *
+     * @param event the event
+     */
     @FXML
     void accionCancelar(ActionEvent event) {
     	owner.close();
     }
 
+    /**
+     * Accion guardar.
+     *
+     * @param event the event
+     */
     @FXML
     void accionGuardar(ActionEvent event) {
     	String error="";
@@ -63,6 +80,13 @@ public class AniadirEquipoController {
     	owner.close();
     }
 
+	/**
+	 * Validar existencia.
+	 *
+	 * @param nombre the nombre
+	 * @param iniciales the iniciales
+	 * @return true, if successful
+	 */
 	private boolean validarExistencia(String nombre, String iniciales) {
 		ModeloEquipo eq=new ModeloEquipo(nombre, iniciales);
 		for(ModeloEquipo e:DaoEquipo.listaEquipos()) {
@@ -73,6 +97,11 @@ public class AniadirEquipoController {
 		return false;
 	}
 	
+	/**
+	 * Sets the owner.
+	 *
+	 * @param owner the new owner
+	 */
 	public void setOwner(Stage owner) {
 		this.owner = owner;
 	}

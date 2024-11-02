@@ -26,39 +26,61 @@ import javafx.scene.image.WritablePixelFormat;
 import javafx.stage.FileChooser;
 import model.ModeloDeportista;
 
+/**
+ * The Class AniadirDeportistaController.
+ */
 public class AniadirDeportistaController {
 
+    /** The btn buscar foto. */
     @FXML
     private Button btnBuscarFoto;
 
+    /** The btn cancelar. */
     @FXML
     private Button btnCancelar;
 
+    /** The btn gaurdar. */
     @FXML
     private Button btnGaurdar;
     
+    /** The img deportista. */
     @FXML
     private ImageView imgDeportista;
     
+    /** The txt altura. */
     @FXML
     private TextField txtAltura;
 
+    /** The txt nombre. */
     @FXML
     private TextField txtNombre;
 
+    /** The txt peso. */
     @FXML
     private TextField txtPeso;
 
+    /** The cmb sexo. */
     @FXML
     private ComboBox<String> cmbSexo;
     
+    /** The tabla deportistas. */
     private TableView<ModeloDeportista> tablaDeportistas;
 
+    /**
+     * Accion cancelar.
+     *
+     * @param event the event
+     */
     @FXML
     void accionCancelar(ActionEvent event) {
     	TablaDeportistasController.getS().close();
     }
 
+    /**
+     * Accion guardar.
+     *
+     * @param event the event
+     */
     @FXML
     void accionGuardar(ActionEvent event) {
     	String error="";
@@ -138,6 +160,11 @@ public class AniadirDeportistaController {
     	TablaDeportistasController.getS().close();
     }
 
+	/**
+	 * Buscar.
+	 *
+	 * @param event the event
+	 */
 	@FXML
     void buscar(ActionEvent event) {
     	FileChooser fileChooser = new FileChooser();
@@ -152,11 +179,20 @@ public class AniadirDeportistaController {
         }
     }
     
+    /**
+     * Initialize.
+     */
     @FXML
     private void initialize() {
     	cmbSexo.getItems().addAll("M", "F");
     }
     
+    /**
+     * Gets the image input stream.
+     *
+     * @param imageView the image view
+     * @return the image input stream
+     */
     public static InputStream getImageInputStream(ImageView imageView) {
         Image image = imageView.getImage();
         if (image == null) {
@@ -193,6 +229,15 @@ public class AniadirDeportistaController {
         }
     }
     
+    /**
+     * Validar existencia.
+     *
+     * @param nombre the nombre
+     * @param peso the peso
+     * @param altura the altura
+     * @param sexo the sexo
+     * @return true, if successful
+     */
     private boolean validarExistencia(String nombre, int peso, int altura, String sexo) {
 		ModeloDeportista dep=new ModeloDeportista(nombre,sexo, peso, altura, null);
 		for(ModeloDeportista mod:DaoDeportista.listaDeportistas()) {
@@ -203,26 +248,56 @@ public class AniadirDeportistaController {
 		return false;
 	}
 
+    /**
+     * Sets the tabla deportistas.
+     *
+     * @param tablaDeportistas the new tabla deportistas
+     */
     public void setTablaDeportistas(TableView<ModeloDeportista> tablaDeportistas) {
 		this.tablaDeportistas = tablaDeportistas;
 	}
     
+    /**
+     * Gets the txt altura.
+     *
+     * @return the txt altura
+     */
     public TextField getTxtAltura() {
 		return txtAltura;
 	}
     
+    /**
+     * Gets the txt nombre.
+     *
+     * @return the txt nombre
+     */
     public TextField getTxtNombre() {
 		return txtNombre;
 	}
     
+    /**
+     * Gets the txt peso.
+     *
+     * @return the txt peso
+     */
     public TextField getTxtPeso() {
 		return txtPeso;
 	}
     
+    /**
+     * Gets the cmb sexo.
+     *
+     * @return the cmb sexo
+     */
     public ComboBox<String> getCmbSexo() {
 		return cmbSexo;
 	}
     
+    /**
+     * Gets the img deportista.
+     *
+     * @return the img deportista
+     */
     public ImageView getImgDeportista() {
 		return imgDeportista;
 	}
