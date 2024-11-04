@@ -96,7 +96,7 @@ public class DaoEvento {
 			pstmt=con.prepareStatement(select);
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
-				ModeloEvento evento=new ModeloEvento(rs.getString("nombre"),rs.getInt("id_olimpiada"),rs.getInt("idDeporte"));
+				ModeloEvento evento=new ModeloEvento(rs.getString("nombre"),rs.getInt("id_olimpiada"),rs.getInt("id_deporte"));
 				evento.setId(rs.getInt("id_evento"));
 				lst.add(evento);
 			}
@@ -121,7 +121,7 @@ public class DaoEvento {
 			pstmt.setInt(1,id);
 			ResultSet rs = pstmt.executeQuery();
 			if(rs.next()) {
-				ModeloEvento evento=new ModeloEvento(rs.getString("nombre"),rs.getInt("id_olimpiada"),rs.getInt("idDeporte"));
+				ModeloEvento evento=new ModeloEvento(rs.getString("nombre"),rs.getInt("id_olimpiada"),rs.getInt("id_deporte"));
 				evento.setId(rs.getInt("id_evento"));
 				return evento;
 			}

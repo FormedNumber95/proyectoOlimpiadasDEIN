@@ -128,8 +128,8 @@ public class EditarEventoController {
     	if(cmbEvento.getItems().size()>0) {
     		cmbEvento.getSelectionModel().select(0);
     		txtNombre.setText(cmbEvento.getSelectionModel().getSelectedItem().getNombre());
-    		cmbDeporte.getSelectionModel().select(cmbEvento.getSelectionModel().getSelectedItem().getId_deporte());
-    		cmbOlimpiada.getSelectionModel().select(cmbEvento.getSelectionModel().getSelectedItem().getIdOlimpiada());
+    		cmbDeporte.getSelectionModel().select(cmbEvento.getSelectionModel().getSelectedItem().getId_deporte()-1);
+    		cmbOlimpiada.getSelectionModel().select(cmbEvento.getSelectionModel().getSelectedItem().getIdOlimpiada()-1);
     	}
     }
     
