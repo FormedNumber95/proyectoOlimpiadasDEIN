@@ -68,44 +68,46 @@ public class AniadirParticipacionController {
      */
     @FXML
     void accionGuardar(ActionEvent event) {
-    	String error="";
-    	int edad=-1;
-    	boolean existe;
-    	if(txtEdad.getText().isEmpty()) {
-    		error="El campo edad es obligatorio";
-    	}else {
-    		try {
-    			edad=Integer.parseInt(txtEdad.getText());
-    			if(edad<=0) {
-    				throw new Exception();
-    			}
-    		}catch(NumberFormatException e) {
-    			error="La edad debe ser un numero";
-    		}catch(Exception e) {
-    			error="La edad no puede ser menor que 1";
-    		}
+    	if(cmbEquipo.getSelectionModel().getSelectedItem()!=null&&cmbEvento.getSelectionModel().getSelectedItem()!=null&&cmbMedalla.getSelectionModel().getSelectedItem()!=null) {
+	    	String error="";
+	    	int edad=-1;
+	    	boolean existe;
+	    	if(txtEdad.getText().isEmpty()) {
+	    		error="El campo edad es obligatorio";
+	    	}else {
+	    		try {
+	    			edad=Integer.parseInt(txtEdad.getText());
+	    			if(edad<=0) {
+	    				throw new Exception();
+	    			}
+	    		}catch(NumberFormatException e) {
+	    			error="La edad debe ser un numero";
+	    		}catch(Exception e) {
+	    			error="La edad no puede ser menor que 1";
+	    		}
+	    	}
+	    	Alert al=new Alert(AlertType.INFORMATION);
+	    	al.setHeaderText(null);
+	    	existe=validarExistencia(cmbEvento.getSelectionModel().getSelectedItem(),tablaDeportistas.getSelectionModel().getSelectedItem(),edad);
+	    	if(error.equals("")&&!existe) {
+	    		if(ParticipacionesController.isEsAniadir()) {
+	        		DaoParticipacion.aniadir(tablaDeportistas.getSelectionModel().getSelectedItem().getId(), cmbEvento.getSelectionModel().getSelectedItem().getId(), cmbEquipo.getSelectionModel().getSelectedItem().getId(), edad, cmbMedalla.getSelectionModel().getSelectedItem());
+	        		error="Participacion añadida correctamente";
+	    		}else {
+	    			DaoParticipacion.modificar(tablaDeportistas.getSelectionModel().getSelectedItem().getId(), cmbEvento.getSelectionModel().getSelectedItem().getId(), cmbEquipo.getSelectionModel().getSelectedItem().getId(), edad, cmbMedalla.getSelectionModel().getSelectedItem());
+	        		error="Participacion modificada correctamente";
+	        	}
+	    	}else {
+	    		if(error.equals("")) {
+					al.setAlertType(AlertType.WARNING);
+					error="La participacion ya estaba en la lista";
+				}else {
+					al.setAlertType(AlertType.ERROR);
+				}
+	    	}
+	    	al.setContentText(error);
+	    	al.showAndWait();
     	}
-    	Alert al=new Alert(AlertType.INFORMATION);
-    	al.setHeaderText(null);
-    	existe=validarExistencia(cmbEvento.getSelectionModel().getSelectedItem(),tablaDeportistas.getSelectionModel().getSelectedItem(),edad);
-    	if(error.equals("")&&!existe) {
-    		if(ParticipacionesController.isEsAniadir()) {
-        		DaoParticipacion.aniadir(tablaDeportistas.getSelectionModel().getSelectedItem().getId(), cmbEvento.getSelectionModel().getSelectedItem().getId(), cmbEquipo.getSelectionModel().getSelectedItem().getId(), edad, cmbMedalla.getSelectionModel().getSelectedItem());
-        		error="Participacion añadida correctamente";
-    		}else {
-    			DaoParticipacion.modificar(tablaDeportistas.getSelectionModel().getSelectedItem().getId(), cmbEvento.getSelectionModel().getSelectedItem().getId(), cmbEquipo.getSelectionModel().getSelectedItem().getId(), edad, cmbMedalla.getSelectionModel().getSelectedItem());
-        		error="Participacion modificada correctamente";
-        	}
-    	}else {
-    		if(error.equals("")) {
-				al.setAlertType(AlertType.WARNING);
-				error="La participacion ya estaba en la lista";
-			}else {
-				al.setAlertType(AlertType.ERROR);
-			}
-    	}
-    	al.setContentText(error);
-    	al.showAndWait();
     }
     
     /**

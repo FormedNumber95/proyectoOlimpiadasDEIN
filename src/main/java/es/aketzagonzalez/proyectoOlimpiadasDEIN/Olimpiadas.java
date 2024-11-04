@@ -43,7 +43,7 @@ public class Olimpiadas extends Application {
         stage.setResizable(false);
         try {
 			ConexionBBDD db=new ConexionBBDD();
-			setRoot("deportistas","",bundle);
+			setRoot("deportistas","DEPORTISTAS",bundle);
 		} catch (SQLException e) {
 			Alert al=new Alert(AlertType.ERROR);
 			al.setHeaderText(null);

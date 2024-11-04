@@ -587,6 +587,7 @@ public class ParticipacionesController {
     	colMedalla.setCellValueFactory(new PropertyValueFactory<>("medalla"));
     	listaTodas=DaoParticipacion.listaParticipaciones(tablaDeportistas.getSelectionModel().getSelectedItem().getId());
     	filtro=new FilteredList<ModeloParticipacion>(listaTodas);
+    	tablaParticipaciones.setItems(listaTodas);
     }
 
     /**

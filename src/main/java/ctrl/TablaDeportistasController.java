@@ -587,6 +587,7 @@ public class TablaDeportistasController {
             Locale locale = new Locale.Builder().setLanguage(lang).build();
             ResourceBundle bundle = ResourceBundle.getBundle("idiomas/lang", locale);
     		s=new Stage();
+    		s.setTitle(tablaDeportistas.getSelectionModel().getSelectedItem().getNombre());
     		Scene scene;
     		try {
     			ParticipacionesController.setTablaDeportistas(tablaDeportistas);
