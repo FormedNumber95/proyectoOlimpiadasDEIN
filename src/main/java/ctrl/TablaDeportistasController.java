@@ -7,7 +7,7 @@ import java.util.ResourceBundle;
 
 import dao.DaoDeportista;
 import db.ConexionBBDD;
-import es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp;
+import es.aketzagonzalez.proyectoOlimpiadasDEIN.Olimpiadas;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
@@ -145,7 +145,7 @@ public class TablaDeportistasController {
         s=new Stage();
     	Scene scene;
     	try {
-			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/aniadirDeporte.fxml"),bundle);
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.Olimpiadas.class.getResource("/fxml/aniadirDeporte.fxml"),bundle);
 			scene = new Scene(controlador.load());
 			s.setScene(scene);
 			AniadirDeporteController controller=controlador.getController();
@@ -154,7 +154,7 @@ public class TablaDeportistasController {
 			e.printStackTrace();
 		}
     	s.setResizable(false);
-	    s.initOwner(MainApp.getStage());
+	    s.initOwner(Olimpiadas.getStage());
 	    s.initModality(javafx.stage.Modality.WINDOW_MODAL);
 	    s.showAndWait();
     }
@@ -173,7 +173,7 @@ public class TablaDeportistasController {
         s=new Stage();
     	Scene scene;
     	try {
-			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/aniadirEquipo.fxml"),bundle);
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.Olimpiadas.class.getResource("/fxml/aniadirEquipo.fxml"),bundle);
 			scene = new Scene(controlador.load());
 			s.setScene(scene);
 			AniadirEquipoController controller=controlador.getController();
@@ -182,7 +182,7 @@ public class TablaDeportistasController {
 			e.printStackTrace();
 		}
     	s.setResizable(false);
-	     s.initOwner(MainApp.getStage());
+	     s.initOwner(Olimpiadas.getStage());
 	     s.initModality(javafx.stage.Modality.WINDOW_MODAL);
 	     s.showAndWait();
     }
@@ -201,7 +201,7 @@ public class TablaDeportistasController {
         s=new Stage();
     	Scene scene;
     	try {
-			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/aniadirEvento.fxml"),bundle);
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.Olimpiadas.class.getResource("/fxml/aniadirEvento.fxml"),bundle);
 			scene = new Scene(controlador.load());
 			s.setScene(scene);
 			AniadirEventoController controller=controlador.getController();
@@ -210,7 +210,7 @@ public class TablaDeportistasController {
 			e.printStackTrace();
 		}
     	s.setResizable(false);
-	     s.initOwner(MainApp.getStage());
+	     s.initOwner(Olimpiadas.getStage());
 	     s.initModality(javafx.stage.Modality.WINDOW_MODAL);
 	     s.showAndWait();
     }
@@ -229,7 +229,7 @@ public class TablaDeportistasController {
         s=new Stage();
     	Scene scene;
     	try {
-			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/aniadirOlimpiada.fxml"),bundle);
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.Olimpiadas.class.getResource("/fxml/aniadirOlimpiada.fxml"),bundle);
 			scene = new Scene(controlador.load());
 			s.setScene(scene);
 			AniadirOlimpiadaController controller=controlador.getController();
@@ -238,7 +238,7 @@ public class TablaDeportistasController {
 			e.printStackTrace();
 		}
     	s.setResizable(false);
-	     s.initOwner(MainApp.getStage());
+	     s.initOwner(Olimpiadas.getStage());
 	     s.initModality(javafx.stage.Modality.WINDOW_MODAL);
 	     s.showAndWait();
     }
@@ -258,7 +258,7 @@ public class TablaDeportistasController {
     	s=new Stage();
     	Scene scene;
 		try {
-			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/aniadirDeportista.fxml"),bundle);
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.Olimpiadas.class.getResource("/fxml/aniadirDeportista.fxml"),bundle);
 			scene = new Scene(controlador.load());
 			s.setScene(scene);
 			AniadirDeportistaController controller=controlador.getController();
@@ -268,7 +268,7 @@ public class TablaDeportistasController {
 			e.printStackTrace();
 		}
 		 s.setResizable(false);
-	     s.initOwner(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.getStage());
+	     s.initOwner(es.aketzagonzalez.proyectoOlimpiadasDEIN.Olimpiadas.getStage());
 	     s.initModality(javafx.stage.Modality.WINDOW_MODAL);
 	     s.showAndWait();
 	     accionFiltrar(event);
@@ -289,7 +289,7 @@ public class TablaDeportistasController {
         s=new Stage();
     	Scene scene;
     	try {
-			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/editarDeporte.fxml"),bundle);
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.Olimpiadas.class.getResource("/fxml/editarDeporte.fxml"),bundle);
 			scene = new Scene(controlador.load());
 			s.setScene(scene);
 			EditarDeporteController controller=controlador.getController();
@@ -299,7 +299,7 @@ public class TablaDeportistasController {
 			e.printStackTrace();
 		}
     	s.setResizable(false);
-	    s.initOwner(MainApp.getStage());
+	    s.initOwner(Olimpiadas.getStage());
 	    s.initModality(javafx.stage.Modality.WINDOW_MODAL);
 	    s.showAndWait();
     }
@@ -318,7 +318,7 @@ public class TablaDeportistasController {
         s=new Stage();
     	Scene scene;
     	try {
-			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/editarEquipo.fxml"),bundle);
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.Olimpiadas.class.getResource("/fxml/editarEquipo.fxml"),bundle);
 			scene = new Scene(controlador.load());
 			s.setScene(scene);
 			EditarEquipoController controller=controlador.getController();
@@ -328,7 +328,7 @@ public class TablaDeportistasController {
 			e.printStackTrace();
 		}
     	s.setResizable(false);
-	    s.initOwner(MainApp.getStage());
+	    s.initOwner(Olimpiadas.getStage());
 	    s.initModality(javafx.stage.Modality.WINDOW_MODAL);
 	    s.showAndWait();
     }
@@ -347,7 +347,7 @@ public class TablaDeportistasController {
         s=new Stage();
     	Scene scene;
     	try {
-			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/editarEvento.fxml"),bundle);
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.Olimpiadas.class.getResource("/fxml/editarEvento.fxml"),bundle);
 			scene = new Scene(controlador.load());
 			s.setScene(scene);
 			EditarEventoController controller=controlador.getController();
@@ -357,7 +357,7 @@ public class TablaDeportistasController {
 			e.printStackTrace();
 		}
     	s.setResizable(false);
-	    s.initOwner(MainApp.getStage());
+	    s.initOwner(Olimpiadas.getStage());
 	    s.initModality(javafx.stage.Modality.WINDOW_MODAL);
 	    s.showAndWait();
     }
@@ -376,7 +376,7 @@ public class TablaDeportistasController {
         s=new Stage();
     	Scene scene;
     	try {
-			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/editarOlimpiada.fxml"),bundle);
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.Olimpiadas.class.getResource("/fxml/editarOlimpiada.fxml"),bundle);
 			scene = new Scene(controlador.load());
 			s.setScene(scene);
 			EditarOlimpiadaController controller=controlador.getController();
@@ -386,7 +386,7 @@ public class TablaDeportistasController {
 			e.printStackTrace();
 		}
     	s.setResizable(false);
-	    s.initOwner(MainApp.getStage());
+	    s.initOwner(Olimpiadas.getStage());
 	    s.initModality(javafx.stage.Modality.WINDOW_MODAL);
 	    s.showAndWait();
     }
@@ -431,7 +431,7 @@ public class TablaDeportistasController {
         s=new Stage();
     	Scene scene;
     	try {
-			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/editarDeporte.fxml"),bundle);
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.Olimpiadas.class.getResource("/fxml/editarDeporte.fxml"),bundle);
 			scene = new Scene(controlador.load());
 			s.setScene(scene);
 			EditarDeporteController controller=controlador.getController();
@@ -441,7 +441,7 @@ public class TablaDeportistasController {
 			e.printStackTrace();
 		}
     	s.setResizable(false);
-	    s.initOwner(MainApp.getStage());
+	    s.initOwner(Olimpiadas.getStage());
 	    s.initModality(javafx.stage.Modality.WINDOW_MODAL);
 	    s.showAndWait();
     }
@@ -460,7 +460,7 @@ public class TablaDeportistasController {
         s=new Stage();
     	Scene scene;
     	try {
-			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/editarEquipo.fxml"),bundle);
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.Olimpiadas.class.getResource("/fxml/editarEquipo.fxml"),bundle);
 			scene = new Scene(controlador.load());
 			s.setScene(scene);
 			EditarEquipoController controller=controlador.getController();
@@ -470,7 +470,7 @@ public class TablaDeportistasController {
 			e.printStackTrace();
 		}
     	s.setResizable(false);
-	    s.initOwner(MainApp.getStage());
+	    s.initOwner(Olimpiadas.getStage());
 	    s.initModality(javafx.stage.Modality.WINDOW_MODAL);
 	    s.showAndWait();
     }
@@ -489,7 +489,7 @@ public class TablaDeportistasController {
         s=new Stage();
     	Scene scene;
     	try {
-			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/editarEvento.fxml"),bundle);
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.Olimpiadas.class.getResource("/fxml/editarEvento.fxml"),bundle);
 			scene = new Scene(controlador.load());
 			s.setScene(scene);
 			EditarEventoController controller=controlador.getController();
@@ -499,7 +499,7 @@ public class TablaDeportistasController {
 			e.printStackTrace();
 		}
     	s.setResizable(false);
-	    s.initOwner(MainApp.getStage());
+	    s.initOwner(Olimpiadas.getStage());
 	    s.initModality(javafx.stage.Modality.WINDOW_MODAL);
 	    s.showAndWait();
     }
@@ -518,7 +518,7 @@ public class TablaDeportistasController {
         s=new Stage();
     	Scene scene;
     	try {
-			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/editarOlimpiada.fxml"),bundle);
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.Olimpiadas.class.getResource("/fxml/editarOlimpiada.fxml"),bundle);
 			scene = new Scene(controlador.load());
 			s.setScene(scene);
 			EditarOlimpiadaController controller=controlador.getController();
@@ -528,7 +528,7 @@ public class TablaDeportistasController {
 			e.printStackTrace();
 		}
     	s.setResizable(false);
-	    s.initOwner(MainApp.getStage());
+	    s.initOwner(Olimpiadas.getStage());
 	    s.initModality(javafx.stage.Modality.WINDOW_MODAL);
 	    s.showAndWait();
     }
@@ -548,7 +548,7 @@ public class TablaDeportistasController {
     	s=new Stage();
     	Scene scene;
 		try {
-			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/aniadirDeportista.fxml"),bundle);
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.Olimpiadas.class.getResource("/fxml/aniadirDeportista.fxml"),bundle);
 			scene = new Scene(controlador.load());
 			s.setScene(scene);
 			AniadirDeportistaController controller=controlador.getController();
@@ -567,7 +567,7 @@ public class TablaDeportistasController {
 			e.printStackTrace();
 		}
 		 s.setResizable(false);
-	     s.initOwner(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.getStage());
+	     s.initOwner(es.aketzagonzalez.proyectoOlimpiadasDEIN.Olimpiadas.getStage());
 	     s.initModality(javafx.stage.Modality.WINDOW_MODAL);
 	     s.showAndWait();
 	     accionFiltrar(event);
@@ -590,7 +590,7 @@ public class TablaDeportistasController {
     		Scene scene;
     		try {
     			ParticipacionesController.setTablaDeportistas(tablaDeportistas);
-	   			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/participaciones.fxml"),bundle);
+	   			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.Olimpiadas.class.getResource("/fxml/participaciones.fxml"),bundle);
 	   			scene = new Scene(controlador.load());
 	   			s.setScene(scene);
 	   			ParticipacionesController controller=controlador.getController();
@@ -601,7 +601,7 @@ public class TablaDeportistasController {
     			e.printStackTrace();
     		}
     		s.setResizable(false);
-    		s.initOwner(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.getStage());
+    		s.initOwner(es.aketzagonzalez.proyectoOlimpiadasDEIN.Olimpiadas.getStage());
    	     	s.initModality(javafx.stage.Modality.WINDOW_MODAL);
    	     	s.showAndWait();
     	}

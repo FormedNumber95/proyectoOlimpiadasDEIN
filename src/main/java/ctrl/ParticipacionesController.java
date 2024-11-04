@@ -152,7 +152,7 @@ public class ParticipacionesController {
         s=new Stage();
     	Scene scene;
     	try {
-			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/aniadirDeporte.fxml"),bundle);
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.Olimpiadas.class.getResource("/fxml/aniadirDeporte.fxml"),bundle);
 			scene = new Scene(controlador.load());
 			s.setScene(scene);
 			AniadirDeporteController controller=controlador.getController();
@@ -180,7 +180,7 @@ public class ParticipacionesController {
         s=new Stage();
     	Scene scene;
     	try {
-			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/aniadirEquipo.fxml"),bundle);
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.Olimpiadas.class.getResource("/fxml/aniadirEquipo.fxml"),bundle);
 			scene = new Scene(controlador.load());
 			s.setScene(scene);
 			AniadirEquipoController controller=controlador.getController();
@@ -208,7 +208,7 @@ public class ParticipacionesController {
         s=new Stage();
     	Scene scene;
     	try {
-			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/aniadirEvento.fxml"),bundle);
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.Olimpiadas.class.getResource("/fxml/aniadirEvento.fxml"),bundle);
 			scene = new Scene(controlador.load());
 			s.setScene(scene);
 			AniadirEventoController controller=controlador.getController();
@@ -236,7 +236,7 @@ public class ParticipacionesController {
         s=new Stage();
     	Scene scene;
     	try {
-			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/aniadirOlimpiada.fxml"),bundle);
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.Olimpiadas.class.getResource("/fxml/aniadirOlimpiada.fxml"),bundle);
 			scene = new Scene(controlador.load());
 			s.setScene(scene);
 			AniadirOlimpiadaController controller=controlador.getController();
@@ -265,7 +265,7 @@ public class ParticipacionesController {
     	s=new Stage();
     	Scene scene;
 		try {
-			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/aniadirParticipacion.fxml"),bundle);
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.Olimpiadas.class.getResource("/fxml/aniadirParticipacion.fxml"),bundle);
 			scene = new Scene(controlador.load());
 			s.setScene(scene);
 			AniadirParticipacionController.setTablaParticipaciones(tablaParticipaciones);
@@ -295,7 +295,7 @@ public class ParticipacionesController {
         s=new Stage();
     	Scene scene;
     	try {
-			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/editarDeporte.fxml"),bundle);
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.Olimpiadas.class.getResource("/fxml/editarDeporte.fxml"),bundle);
 			scene = new Scene(controlador.load());
 			s.setScene(scene);
 			EditarDeporteController controller=controlador.getController();
@@ -324,7 +324,7 @@ public class ParticipacionesController {
         s=new Stage();
     	Scene scene;
     	try {
-			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/editarEquipo.fxml"),bundle);
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.Olimpiadas.class.getResource("/fxml/editarEquipo.fxml"),bundle);
 			scene = new Scene(controlador.load());
 			s.setScene(scene);
 			EditarEquipoController controller=controlador.getController();
@@ -353,7 +353,7 @@ public class ParticipacionesController {
         s=new Stage();
     	Scene scene;
     	try {
-			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/editarEvento.fxml"),bundle);
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.Olimpiadas.class.getResource("/fxml/editarEvento.fxml"),bundle);
 			scene = new Scene(controlador.load());
 			s.setScene(scene);
 			EditarEventoController controller=controlador.getController();
@@ -382,7 +382,7 @@ public class ParticipacionesController {
         s=new Stage();
     	Scene scene;
     	try {
-			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/editarOlimpiada.fxml"),bundle);
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.Olimpiadas.class.getResource("/fxml/editarOlimpiada.fxml"),bundle);
 			scene = new Scene(controlador.load());
 			s.setScene(scene);
 			EditarOlimpiadaController controller=controlador.getController();
@@ -437,7 +437,7 @@ public class ParticipacionesController {
         s=new Stage();
     	Scene scene;
     	try {
-			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/editarDeporte.fxml"),bundle);
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.Olimpiadas.class.getResource("/fxml/editarDeporte.fxml"),bundle);
 			scene = new Scene(controlador.load());
 			s.setScene(scene);
 			EditarDeporteController controller=controlador.getController();
@@ -466,7 +466,7 @@ public class ParticipacionesController {
         s=new Stage();
     	Scene scene;
     	try {
-			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/editarEquipo.fxml"),bundle);
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.Olimpiadas.class.getResource("/fxml/editarEquipo.fxml"),bundle);
 			scene = new Scene(controlador.load());
 			s.setScene(scene);
 			EditarEquipoController controller=controlador.getController();
@@ -495,7 +495,7 @@ public class ParticipacionesController {
         s=new Stage();
     	Scene scene;
     	try {
-			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/editarEvento.fxml"),bundle);
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.Olimpiadas.class.getResource("/fxml/editarEvento.fxml"),bundle);
 			scene = new Scene(controlador.load());
 			s.setScene(scene);
 			EditarEventoController controller=controlador.getController();
@@ -524,7 +524,7 @@ public class ParticipacionesController {
         s=new Stage();
     	Scene scene;
     	try {
-			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/editarOlimpiada.fxml"),bundle);
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.Olimpiadas.class.getResource("/fxml/editarOlimpiada.fxml"),bundle);
 			scene = new Scene(controlador.load());
 			s.setScene(scene);
 			EditarOlimpiadaController controller=controlador.getController();
@@ -554,7 +554,7 @@ public class ParticipacionesController {
     	s=new Stage();
     	Scene scene;
 		try {
-			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.MainApp.class.getResource("/fxml/aniadirParticipacion.fxml"),bundle);
+			 FXMLLoader controlador = new FXMLLoader(es.aketzagonzalez.proyectoOlimpiadasDEIN.Olimpiadas.class.getResource("/fxml/aniadirParticipacion.fxml"),bundle);
 			scene = new Scene(controlador.load());
 			s.setScene(scene);
 			AniadirParticipacionController controller=controlador.getController();

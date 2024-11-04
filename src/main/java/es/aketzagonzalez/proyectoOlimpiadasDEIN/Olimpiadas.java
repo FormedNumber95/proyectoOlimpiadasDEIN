@@ -4,6 +4,9 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -15,9 +18,9 @@ import java.util.ResourceBundle;
 import db.ConexionBBDD;
 
 /**
- * The Class MainApp.
+ * The Class Olimpiadas.
  */
-public class MainApp extends Application {
+public class Olimpiadas extends Application {
     
     /** The stage. */
     private static Stage stage;
@@ -35,13 +38,18 @@ public class MainApp extends Application {
         Locale locale = new Locale.Builder().setLanguage(lang).build();
         ResourceBundle bundle = ResourceBundle.getBundle("idiomas/lang", locale);
         stage=s;
+        Image imagen=new Image(getClass().getResource("/imagenes/agenda.png").toString());
+        stage.getIcons().add(imagen);
         stage.setResizable(false);
         try {
 			ConexionBBDD db=new ConexionBBDD();
+			setRoot("deportistas","",bundle);
 		} catch (SQLException e) {
-			e.printStackTrace();
+			Alert al=new Alert(AlertType.ERROR);
+			al.setHeaderText(null);
+			al.setContentText("Error en la coneion a la base de datos");
+			al.showAndWait();
 		}
-        setRoot("deportistas","",bundle);
     }
 
     /**
@@ -79,7 +87,7 @@ public class MainApp extends Application {
      * @throws IOException Signals that an I/O exception has occurred.
      */
     private static Parent loadFXML(String fxml,ResourceBundle bundle) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("/fxml/"+fxml + ".fxml"),bundle);
+        FXMLLoader fxmlLoader = new FXMLLoader(Olimpiadas.class.getResource("/fxml/"+fxml + ".fxml"),bundle);
         return fxmlLoader.load();
     }
 
