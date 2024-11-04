@@ -63,8 +63,8 @@
       </GridPane>
       <HBox alignment="CENTER" spacing="50.0">
          <children>
-            <Button fx:id="btnGaurdar" mnemonicParsing="false" onAction="#accionGuardar" text="%label.guardar" />
-            <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#accionCancelar" text="%label.cancelar" />
+            <Button fx:id="btnGaurdar" defaultButton="true" mnemonicParsing="false" onAction="#accionGuardar" text="%label.guardar" />
+            <Button fx:id="btnCancelar" cancelButton="true" mnemonicParsing="false" onAction="#accionCancelar" text="%label.cancelar" />
          </children>
       </HBox>
    </children>

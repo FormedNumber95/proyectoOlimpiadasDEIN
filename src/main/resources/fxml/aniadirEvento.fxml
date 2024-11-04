@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="20.0" stylesheets="@../styles/estilo.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ctrl.AniadirEventoController">
    <children>
       <GridPane>
@@ -47,8 +46,8 @@
       </GridPane>
       <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="50.0">
          <children>
-            <Button fx:id="btnGuardar" mnemonicParsing="false" onAction="#accionGuardar" text="%label.guardar" />
-            <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#accionCancelar" text="%label.cancelar" />
+            <Button fx:id="btnGuardar" defaultButton="true" mnemonicParsing="false" onAction="#accionGuardar" text="%label.guardar" />
+            <Button fx:id="btnCancelar" cancelButton="true" mnemonicParsing="false" onAction="#accionCancelar" text="%label.cancelar" />
          </children>
       </HBox>
    </children>
