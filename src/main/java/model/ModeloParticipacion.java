@@ -47,7 +47,7 @@ public class ModeloParticipacion {
 	 */
 	@Override
 	public int hashCode() {
-		return Objects.hash(edad, equipo, evento, idDeportista, medalla);
+		return Objects.hash(evento, idDeportista);
 	}
 
 	/**
@@ -65,8 +65,7 @@ public class ModeloParticipacion {
 		if (getClass() != obj.getClass())
 			return false;
 		ModeloParticipacion other = (ModeloParticipacion) obj;
-		return edad == other.edad && Objects.equals(equipo, other.equipo) && Objects.equals(evento, other.evento)
-				&& idDeportista == other.idDeportista && Objects.equals(medalla, other.medalla);
+		return Objects.equals(evento, other.evento) && idDeportista == other.idDeportista;
 	}
 
 	/**
