@@ -1,6 +1,7 @@
 package ctrl;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Locale;
 import java.util.Properties;
 import java.util.ResourceBundle;
@@ -557,7 +558,7 @@ public class TablaDeportistasController {
 			controller.getTxtAltura().setText(dep.getAltura()+"");
 			controller.getTxtNombre().setText(dep.getNombre());
 			controller.getTxtPeso().setText(dep.getPeso()+"");
-			controller.getImgDeportista().setImage(new Image(dep.getFoto()));
+			controller.getImgDeportista().setImage(new Image(dep.getFotoStream()));
 			if(dep.getSexo().equals("M")) {
 				controller.getCmbSexo().getSelectionModel().select(0);
 			}else {
@@ -595,9 +596,14 @@ public class TablaDeportistasController {
 	   			scene = new Scene(controlador.load());
 	   			s.setScene(scene);
 	   			ParticipacionesController controller=controlador.getController();
-	   			if(tablaDeportistas.getSelectionModel().getSelectedItem().getFoto()!=null) {
-	   				controller.getImgDeportista().setImage(new Image(tablaDeportistas.getSelectionModel().getSelectedItem().getFoto()));
+	   			if (tablaDeportistas.getSelectionModel().getSelectedItem().getFotoStream() != null) {
+	   			    try (InputStream fotoStream = tablaDeportistas.getSelectionModel().getSelectedItem().getFotoStream()) {
+	   			        controller.getImgDeportista().setImage(new Image(fotoStream));
+	   			    } catch (IOException e) {
+	   			        e.printStackTrace();
+	   			    }
 	   			}
+
 	   			} catch (IOException e) {
     			e.printStackTrace();
     		}

@@ -1,5 +1,7 @@
 package model;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.Objects;
 
@@ -24,7 +26,7 @@ public class ModeloDeportista {
 	private int altura;
 	
 	/** The foto. */
-	private InputStream foto;
+	private byte[] foto;
 	
 	/**
 	 * Instantiates a new modelo deportista.
@@ -41,7 +43,24 @@ public class ModeloDeportista {
 		this.sexo = sexo;
 		this.peso = peso;
 		this.altura = altura;
-		this.foto = foto;
+		fijarFoto(foto);
+	}
+
+	private void fijarFoto(InputStream foto) {
+		if(foto!=null) {
+			try {
+				this.foto=foto.readAllBytes();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public InputStream getFotoStream() {
+		if(foto==null) {
+			return null;
+		}
+		return new ByteArrayInputStream(foto);
 	}
 
 	/**
@@ -135,15 +154,6 @@ public class ModeloDeportista {
 	 */
 	public int getAltura() {
 		return altura;
-	}
-
-	/**
-	 * Gets the foto.
-	 *
-	 * @return the foto
-	 */
-	public InputStream getFoto() {
-		return foto;
 	}
 	
 }
