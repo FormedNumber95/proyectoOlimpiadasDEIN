@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="428.0" prefWidth="429.0" spacing="30.0" stylesheets="@../styles/estilo.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ctrl.AniadirDeportistaController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="440.0" spacing="30.0" stylesheets="@../styles/estilo.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ctrl.AniadirDeportistaController">
    <children>
-      <GridPane prefHeight="305.0" prefWidth="409.0">
+      <GridPane prefHeight="390.0" prefWidth="419.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="199.20001220703125" minWidth="10.0" prefWidth="137.5999755859375" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="270.4000244140625" minWidth="10.0" prefWidth="270.4000244140625" />
