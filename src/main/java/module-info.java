@@ -5,7 +5,7 @@ module es.aketzagonzalez {
 	requires java.sql;
 	requires java.desktop;
 	requires javafx.graphics;
-    opens ctrl to javafx.fxml;
-    opens model to javafx.base;
+    opens es.aketzagonzalez.ctrl to javafx.fxml;
+    opens es.aketzagonzalez.model to javafx.base;
     exports es.aketzagonzalez.proyectoOlimpiadasDEIN;
 }

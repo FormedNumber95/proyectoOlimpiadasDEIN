@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" stylesheets="@../styles/estilo.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ctrl.TablaDeportistasController">
+<VBox alignment="CENTER" stylesheets="@../styles/estilo.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.aketzagonzalez.ctrl.TablaDeportistasController">
    <children>
       <MenuBar>
         <menus>

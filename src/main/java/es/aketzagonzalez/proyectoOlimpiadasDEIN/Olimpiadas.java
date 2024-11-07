@@ -15,7 +15,7 @@ import java.util.Locale;
 import java.util.Properties;
 import java.util.ResourceBundle;
 
-import db.ConexionBBDD;
+import es.aketzagonzalez.db.ConexionBBDD;
 
 /**
  * The Class Olimpiadas.
